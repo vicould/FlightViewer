@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import argparse
 
-
 def read_columns(csv):
     """docstring for read_columns"""
     date = []
@@ -12,11 +11,11 @@ def read_columns(csv):
 
     for line in csv:
         hit_date, hit_time, lat, lng, alt, gnd_speed = line.split(',')
-        longitude.append(lng)
-        latitude.append(lat)
-        altitude.append(alt)
-        speed.append(gnd_speed.replace('\n', ''))
-        date.append(' '.join([hit_date, hit_time]))
+        longitude.append("[NSNumber numberWithDouble:" + lng + "]")
+        latitude.append("[NSNumber numberWithDouble:" + lat + "]")
+        altitude.append("[NSNumber numberWithDouble:" + alt + "]")
+        speed.append("[NSNumber numberWithDouble:" + gnd_speed.replace('\n', '') + "]")
+        date.append("[formatter dateFromString:@\"" + ' '.join([hit_date, hit_time, '+0000']) + "\"]")
 
     return {
             'date': date,
