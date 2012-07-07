@@ -44,14 +44,23 @@ static NSUInteger kNumberOfPages = 2;
     [self loadScrollViewWithPage:1];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        return YES;
+    }
+    return NO;
+}
+
 - (void)loadScrollViewWithPage:(int)page
 {
-    if (page < 0 || page > kNumberOfPages) {
+    if (page < 0 || page > kNumberOfPages - 1) {
         return;
     }
     UIViewController *currentViewController = [self.subViewControllers objectAtIndex:page];
     if ((NSNull *)currentViewController == [NSNull null]) {
         // here we initialize C1 or C2
+        currentViewController = nil;
     }
     CGRect frame = self.scrollView.frame;
     frame.origin.x = frame.size.width * page;
@@ -59,6 +68,30 @@ static NSUInteger kNumberOfPages = 2;
     currentViewController.view.frame = frame;
     [self.scrollView addSubview:currentViewController.view];
     
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (self.pageControlUsed) {
+        return;
+    }
+    CGFloat pageWidth = self.scrollView.frame.size.width;
+    int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.pageControl.currentPage = page;
+    
+    [self loadScrollViewWithPage:page-1];
+    [self loadScrollViewWithPage:page];
+    [self loadScrollViewWithPage:page+1];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    self.pageControlUsed = NO;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    self.pageControlUsed = NO;
 }
 
 - (IBAction)changePage:(id)sender
