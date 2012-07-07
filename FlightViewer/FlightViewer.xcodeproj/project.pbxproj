@@ -1,0 +1,302 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		51987E8115A8C30C00A6484A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51987E8015A8C30C00A6484A /* UIKit.framework */; };
+		51987E8315A8C30C00A6484A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51987E8215A8C30C00A6484A /* Foundation.framework */; };
+		51987E8515A8C30C00A6484A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51987E8415A8C30C00A6484A /* CoreGraphics.framework */; };
+		51987E8B15A8C30C00A6484A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 51987E8915A8C30C00A6484A /* InfoPlist.strings */; };
+		51987E8D15A8C30C00A6484A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 51987E8C15A8C30C00A6484A /* main.m */; };
+		51987E9115A8C30C00A6484A /* FlightViewerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51987E9015A8C30C00A6484A /* FlightViewerAppDelegate.m */; };
+		51987E9415A8C30C00A6484A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51987E9215A8C30C00A6484A /* MainStoryboard_iPhone.storyboard */; };
+		51987E9715A8C30C00A6484A /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51987E9515A8C30C00A6484A /* MainStoryboard_iPad.storyboard */; };
+		51987E9A15A8C30C00A6484A /* FlightViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51987E9915A8C30C00A6484A /* FlightViewerViewController.m */; };
+		51987EA215A8C3B400A6484A /* FlightViewerFPDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 51987EA115A8C3B400A6484A /* FlightViewerFPDetail.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		51987E7C15A8C30C00A6484A /* FlightViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		51987E8015A8C30C00A6484A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		51987E8215A8C30C00A6484A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		51987E8415A8C30C00A6484A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		51987E8815A8C30C00A6484A /* FlightViewer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlightViewer-Info.plist"; sourceTree = "<group>"; };
+		51987E8A15A8C30C00A6484A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		51987E8C15A8C30C00A6484A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		51987E8E15A8C30C00A6484A /* FlightViewer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlightViewer-Prefix.pch"; sourceTree = "<group>"; };
+		51987E8F15A8C30C00A6484A /* FlightViewerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlightViewerAppDelegate.h; sourceTree = "<group>"; };
+		51987E9015A8C30C00A6484A /* FlightViewerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlightViewerAppDelegate.m; sourceTree = "<group>"; };
+		51987E9315A8C30C00A6484A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		51987E9615A8C30C00A6484A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		51987E9815A8C30C00A6484A /* FlightViewerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlightViewerViewController.h; sourceTree = "<group>"; };
+		51987E9915A8C30C00A6484A /* FlightViewerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlightViewerViewController.m; sourceTree = "<group>"; };
+		51987EA015A8C3B400A6484A /* FlightViewerFPDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightViewerFPDetail.h; sourceTree = "<group>"; };
+		51987EA115A8C3B400A6484A /* FlightViewerFPDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightViewerFPDetail.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		51987E7915A8C30C00A6484A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51987E8115A8C30C00A6484A /* UIKit.framework in Frameworks */,
+				51987E8315A8C30C00A6484A /* Foundation.framework in Frameworks */,
+				51987E8515A8C30C00A6484A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		51987E7115A8C30C00A6484A = {
+			isa = PBXGroup;
+			children = (
+				51987E8615A8C30C00A6484A /* FlightViewer */,
+				51987E7F15A8C30C00A6484A /* Frameworks */,
+				51987E7D15A8C30C00A6484A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		51987E7D15A8C30C00A6484A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				51987E7C15A8C30C00A6484A /* FlightViewer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		51987E7F15A8C30C00A6484A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51987E8015A8C30C00A6484A /* UIKit.framework */,
+				51987E8215A8C30C00A6484A /* Foundation.framework */,
+				51987E8415A8C30C00A6484A /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		51987E8615A8C30C00A6484A /* FlightViewer */ = {
+			isa = PBXGroup;
+			children = (
+				51987E8F15A8C30C00A6484A /* FlightViewerAppDelegate.h */,
+				51987E9015A8C30C00A6484A /* FlightViewerAppDelegate.m */,
+				51987E9215A8C30C00A6484A /* MainStoryboard_iPhone.storyboard */,
+				51987E9515A8C30C00A6484A /* MainStoryboard_iPad.storyboard */,
+				51987E9815A8C30C00A6484A /* FlightViewerViewController.h */,
+				51987E9915A8C30C00A6484A /* FlightViewerViewController.m */,
+				51987EA015A8C3B400A6484A /* FlightViewerFPDetail.h */,
+				51987EA115A8C3B400A6484A /* FlightViewerFPDetail.m */,
+				51987E8715A8C30C00A6484A /* Supporting Files */,
+			);
+			path = FlightViewer;
+			sourceTree = "<group>";
+		};
+		51987E8715A8C30C00A6484A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				51987E8815A8C30C00A6484A /* FlightViewer-Info.plist */,
+				51987E8915A8C30C00A6484A /* InfoPlist.strings */,
+				51987E8C15A8C30C00A6484A /* main.m */,
+				51987E8E15A8C30C00A6484A /* FlightViewer-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		51987E7B15A8C30C00A6484A /* FlightViewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 51987E9D15A8C30C00A6484A /* Build configuration list for PBXNativeTarget "FlightViewer" */;
+			buildPhases = (
+				51987E7815A8C30C00A6484A /* Sources */,
+				51987E7915A8C30C00A6484A /* Frameworks */,
+				51987E7A15A8C30C00A6484A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlightViewer;
+			productName = FlightViewer;
+			productReference = 51987E7C15A8C30C00A6484A /* FlightViewer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		51987E7315A8C30C00A6484A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FlightViewer;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 51987E7615A8C30C00A6484A /* Build configuration list for PBXProject "FlightViewer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 51987E7115A8C30C00A6484A;
+			productRefGroup = 51987E7D15A8C30C00A6484A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				51987E7B15A8C30C00A6484A /* FlightViewer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		51987E7A15A8C30C00A6484A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51987E8B15A8C30C00A6484A /* InfoPlist.strings in Resources */,
+				51987E9415A8C30C00A6484A /* MainStoryboard_iPhone.storyboard in Resources */,
+				51987E9715A8C30C00A6484A /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		51987E7815A8C30C00A6484A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51987E8D15A8C30C00A6484A /* main.m in Sources */,
+				51987E9115A8C30C00A6484A /* FlightViewerAppDelegate.m in Sources */,
+				51987E9A15A8C30C00A6484A /* FlightViewerViewController.m in Sources */,
+				51987EA215A8C3B400A6484A /* FlightViewerFPDetail.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		51987E8915A8C30C00A6484A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				51987E8A15A8C30C00A6484A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		51987E9215A8C30C00A6484A /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				51987E9315A8C30C00A6484A /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		51987E9515A8C30C00A6484A /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				51987E9615A8C30C00A6484A /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		51987E9B15A8C30C00A6484A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		51987E9C15A8C30C00A6484A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		51987E9E15A8C30C00A6484A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlightViewer/FlightViewer-Prefix.pch";
+				INFOPLIST_FILE = "FlightViewer/FlightViewer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		51987E9F15A8C30C00A6484A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlightViewer/FlightViewer-Prefix.pch";
+				INFOPLIST_FILE = "FlightViewer/FlightViewer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		51987E7615A8C30C00A6484A /* Build configuration list for PBXProject "FlightViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51987E9B15A8C30C00A6484A /* Debug */,
+				51987E9C15A8C30C00A6484A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		51987E9D15A8C30C00A6484A /* Build configuration list for PBXNativeTarget "FlightViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51987E9E15A8C30C00A6484A /* Debug */,
+				51987E9F15A8C30C00A6484A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 51987E7315A8C30C00A6484A /* Project object */;
+}
