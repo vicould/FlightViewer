@@ -1,18 +1,14 @@
 //
-//  FlightViewerSubViewMap.m
+//  FlightViewerSubViewSectors.m
 //  FlightViewer
 //
-//  Created by Christabelle Bosson on 07/07/12.
+//  Created by Christabelle Bosson on 07/08/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "FlightViewerSubViewMap.h"
+#import "FlightViewerSubViewSectors.h"
 
-@implementation FlightViewerSubViewMap
-
-@synthesize longitude = _longitude;
-@synthesize latitude = _latitude;
-@synthesize flightPlan = _flightPlan;
+@implementation FlightViewerSubViewSectors
 
 - (id)initWithFrame:(CGRect)frame
 {

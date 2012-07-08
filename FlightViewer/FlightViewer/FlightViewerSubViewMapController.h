@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+
 #import "FlightViewerFPDetail.h"
 
-@interface FlightViewerSubViewMapController : UIViewController
+
+@interface FlightViewerSubViewMapController : UIViewController <MKMapViewDelegate>
 
 - (id)initWithFPDetail:(FlightViewerFPDetail *)fpDetail;
 

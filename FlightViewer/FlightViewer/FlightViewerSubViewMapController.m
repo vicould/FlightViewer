@@ -7,7 +7,7 @@
 //
 
 #import "FlightViewerSubViewMapController.h"
-#import "FlightViewerSubViewMap.h"
+#import "FlightViewerSubViewPath.h"
 
 @interface FlightViewerSubViewMapController ()
 
@@ -25,12 +25,20 @@
     if (self) {
         // Custom initialization
         self.fpDetail = fpDetail;
+        
         // Create subview V1
-        FlightViewerSubViewMap *subView = [[FlightViewerSubViewMap alloc] init];
+        MKMapView *map = [[MKMapView alloc] init];
+        map.zoomEnabled = NO;
+        map.scrollEnabled = YES;
+        map.mapType = MKMapTypeStandard;
+        
+        self.view = map;
+        FlightViewerSubViewPath *subView = [[FlightViewerSubViewPath alloc] init];
         subView.longitude = [self.fpDetail.longitude copy];
         subView.latitude = [self.fpDetail.latitude copy];
         subView.flightPlan = [self.fpDetail.flightPlan copy];
-        self.view = subView;
+        
+        
     }
     return self;
 }

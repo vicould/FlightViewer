@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FlightViewerSubViewMap : UIView
+@interface FlightViewerSubViewPath : UIView
 
 @property (nonatomic, strong) NSArray *longitude;
 @property (nonatomic, strong) NSArray *latitude;
