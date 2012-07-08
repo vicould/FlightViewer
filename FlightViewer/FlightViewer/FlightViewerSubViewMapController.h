@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FlightViewerFPDetail.h"
+#import "FlightViewerSubViewMap.h"
 
 @interface FlightViewerSubViewMapController : UIViewController
 

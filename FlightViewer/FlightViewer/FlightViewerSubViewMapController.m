@@ -24,6 +24,11 @@
     if (self) {
         // Custom initialization
         self.fpDetail = fpDetail;
+        // Create subview V1
+        FlightViewerSubViewMap *subView = [[FlightViewerSubViewMap alloc] init];
+        subView.longitude = [self.fpDetail.longitude copy];
+        subView.latitude = [self.fpDetail.latitude copy];
+        self.view = subView;
     }
     return self;
 }
