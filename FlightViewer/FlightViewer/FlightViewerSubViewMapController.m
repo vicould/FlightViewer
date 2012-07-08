@@ -7,6 +7,7 @@
 //
 
 #import "FlightViewerSubViewMapController.h"
+#import "FlightViewerSubViewMap.h"
 
 @interface FlightViewerSubViewMapController ()
 
@@ -28,6 +29,7 @@
         FlightViewerSubViewMap *subView = [[FlightViewerSubViewMap alloc] init];
         subView.longitude = [self.fpDetail.longitude copy];
         subView.latitude = [self.fpDetail.latitude copy];
+        subView.flightPlan = [self.fpDetail.flightPlan copy];
         self.view = subView;
     }
     return self;

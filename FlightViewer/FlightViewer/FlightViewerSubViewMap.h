@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSArray *longitude;
 @property (nonatomic, strong) NSArray *latitude;
+@property (nonatomic, strong) NSString *flightPlan;
 
 
 @end

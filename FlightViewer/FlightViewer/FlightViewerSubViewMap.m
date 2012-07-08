@@ -12,6 +12,7 @@
 
 @synthesize longitude = _longitude;
 @synthesize latitude = _latitude;
+@synthesize flightPlan = _flightPlan;
 
 - (id)initWithFrame:(CGRect)frame
 {
