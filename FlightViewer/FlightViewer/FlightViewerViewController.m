@@ -8,6 +8,8 @@
 
 #import "FlightViewerViewController.h"
 #import "FlightViewerFPDetail.h"
+#import "FlightViewerSubViewGraphController.h"
+#import "FlightViewerSubViewMapController.h"
 
 static NSUInteger kNumberOfPages = 2;
 
@@ -73,7 +75,19 @@ static NSUInteger kNumberOfPages = 2;
     UIViewController *currentViewController = [self.subViewControllers objectAtIndex:page];
     if ((NSNull *)currentViewController == [NSNull null]) {
         // here we initialize C1 or C2
-        currentViewController = nil;
+        switch (page) {
+            case 0:
+                currentViewController = [[FlightViewerSubViewMapController alloc] init];
+                break;
+                
+            case 1:
+                currentViewController = [[FlightViewerSubViewGraphController alloc] init];
+                break;
+                
+            default:
+                currentViewController = nil;
+                break;
+        }  
     }
     CGRect frame = self.scrollView.frame;
     frame.origin.x = frame.size.width * page;
