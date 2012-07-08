@@ -7,6 +7,7 @@
 //
 
 #import "FlightViewerViewController.h"
+#import "FlightViewerFPDetail.h"
 
 static NSUInteger kNumberOfPages = 2;
 
@@ -16,6 +17,8 @@ static NSUInteger kNumberOfPages = 2;
 @property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, strong) NSMutableArray *subViewControllers;
 @property (nonatomic) BOOL pageControlUsed;
+
+@property (nonatomic, strong) FlightViewerFPDetail *fpDetail;
 
 - (void)loadScrollViewWithPage:(int)page;
 
@@ -29,6 +32,16 @@ static NSUInteger kNumberOfPages = 2;
 @synthesize pageControl = _pageControl;
 @synthesize subViewControllers = _subViewControllers;
 @synthesize pageControlUsed = _pageControlUsed;
+
+@synthesize fpDetail = _fpDetail;
+
+- (FlightViewerFPDetail *)fpDetail
+{
+    if (!_fpDetail) {
+        _fpDetail = [[FlightViewerFPDetail alloc] init];
+    }
+    return _fpDetail;
+}
 
 - (void)viewDidLoad
 {
