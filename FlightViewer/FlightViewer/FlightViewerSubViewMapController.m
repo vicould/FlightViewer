@@ -10,9 +10,23 @@
 
 @interface FlightViewerSubViewMapController ()
 
+@property (nonatomic, strong) FlightViewerFPDetail *fpDetail;
+
 @end
 
 @implementation FlightViewerSubViewMapController
+
+@synthesize fpDetail = _fpDetail;
+
+- (id)initWithFPDetail:(FlightViewerFPDetail *)fpDetail
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+        self.fpDetail = fpDetail;
+    }
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

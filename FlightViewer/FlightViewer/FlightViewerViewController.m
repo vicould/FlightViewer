@@ -77,11 +77,11 @@ static NSUInteger kNumberOfPages = 2;
         // here we initialize C1 or C2
         switch (page) {
             case 0:
-                currentViewController = [[FlightViewerSubViewMapController alloc] init];
+                currentViewController = [[FlightViewerSubViewMapController alloc] initWithFPDetail:self.fpDetail];
                 break;
                 
             case 1:
-                currentViewController = [[FlightViewerSubViewGraphController alloc] init];
+                currentViewController = [[FlightViewerSubViewGraphController alloc] initWithFPDetail:self.fpDetail];
                 break;
                 
             default:
