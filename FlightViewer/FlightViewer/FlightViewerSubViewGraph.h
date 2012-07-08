@@ -10,4 +10,8 @@
 
 @interface FlightViewerSubViewGraph : UIView
 
+@property (nonatomic, strong) NSArray *altitude;
+@property (nonatomic, strong) NSArray *speed;
+@property (nonatomic, strong) NSArray *time;
+
 @end

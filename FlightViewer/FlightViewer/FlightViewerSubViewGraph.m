@@ -10,6 +10,10 @@
 
 @implementation FlightViewerSubViewGraph
 
+@synthesize altitude = _altitude;
+@synthesize speed = _speed;
+@synthesize time = _time;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

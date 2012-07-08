@@ -7,6 +7,7 @@
 //
 
 #import "FlightViewerSubViewGraphController.h"
+#import "FlightViewerSubViewGraph.h"
 
 @interface FlightViewerSubViewGraphController ()
 
@@ -24,6 +25,12 @@
     if (self) {
         // Custom initialization
         self.fpDetail = fpDetail;
+        // Create subview V2
+        FlightViewerSubViewGraph *subView = [[FlightViewerSubViewGraph alloc] init];
+        subView.altitude = [self.fpDetail.altitude copy];
+        subView.speed = [self.fpDetail.speed copy];
+        subView.time = [self.fpDetail.time copy];
+        self.view = subView;
     }
     return self;
 }
