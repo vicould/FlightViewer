@@ -74,10 +74,9 @@
     // fp
     
     // Create a MKPolyline
-    MKMapPoint* pointArr = malloc(sizeof(CLLocationCoordinate2D) * 2);
+    MKMapPoint* pointArr = malloc(sizeof(CLLocationCoordinate2D) * self.fpDetail.latitude.count);
     
-    //for (int i = 0; i<2; i++) {
-    int i = 0;
+    for (int i = 0; i<self.fpDetail.latitude.count; i++) {
         CLLocationDegrees latitude = [[self.fpDetail.latitude objectAtIndex:i] doubleValue];
         CLLocationDegrees longitude = [[self.fpDetail.longitude objectAtIndex:i] doubleValue];
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
@@ -85,19 +84,9 @@
         MKMapPoint point = MKMapPointForCoordinate(coordinate);
         
         pointArr[i] = point;
-    //}
+    }
     
-    i = [self.fpDetail.latitude count] - 1;
-         latitude = [[self.fpDetail.latitude objectAtIndex:i] doubleValue];
-         longitude = [[self.fpDetail.longitude objectAtIndex:i] doubleValue];
-         coordinate = CLLocationCoordinate2DMake(latitude, longitude);
-    
-         point = MKMapPointForCoordinate(coordinate);
-    
-        pointArr[1] = point;
-    
-    
-    self.fpRouteLine = [MKPolyline polylineWithPoints:pointArr count:2];
+    self.fpRouteLine = [MKPolyline polylineWithPoints:pointArr count:self.fpDetail.latitude.count];
     free(pointArr);
     
     // Add the polyline (as a MKOverlay) to the map
