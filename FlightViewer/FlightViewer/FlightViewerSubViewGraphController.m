@@ -11,27 +11,15 @@
 
 @interface FlightViewerSubViewGraphController ()
 
+// an outlet to keep track of the main view of this controller, which is the graph.
+@property (nonatomic, strong) IBOutlet FlightViewerSubViewGraph *graphView;
+
 @end
 
 @implementation FlightViewerSubViewGraphController
 
 @synthesize fpDetail = _fpDetail;
-
-- (id)initWithFPDetail:(FlightViewerFPDetail *)fpDetail
-{
-    self = [super init];
-    if (self) {
-        // Custom initialization
-        self.fpDetail = fpDetail;
-        // Create subview V2
-        FlightViewerSubViewGraph *subView = [[FlightViewerSubViewGraph alloc] init];
-        subView.altitude = [self.fpDetail.altitude copy];
-        subView.speed = [self.fpDetail.speed copy];
-        subView.time = [self.fpDetail.time copy];
-        self.view = subView;
-    }
-    return self;
-}
+@synthesize graphView = _subView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,6 +34,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    // Passes useful information for subview V2
+    self.graphView.altitude = [self.fpDetail.altitude copy];
+    self.graphView.speed = [self.fpDetail.speed copy];
+    self.graphView.time = [self.fpDetail.time copy];
 }
 
 - (void)viewDidUnload

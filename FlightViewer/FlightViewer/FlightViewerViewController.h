@@ -8,5 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+/*
+ * The root controller of the application. It manages a scroll view by being its delegate.
+ */
 @interface FlightViewerViewController : UIViewController <UIScrollViewDelegate>
 @end
