@@ -15,6 +15,8 @@
 @interface FlightViewerSubViewMapController ()
 
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) MKPolyline *fpRouteLine;
+@property (nonatomic, strong) MKPolylineView *fpRouteLineView;
 
 @end
 
@@ -22,6 +24,8 @@
 
 @synthesize fpDetail = _fpDetail;
 @synthesize mapView = _mapView;
+@synthesize fpRouteLine = _fpRouteLine;
+@synthesize fpRouteLineView = _fpRouteLineView;
 
 - (id)initWithFPDetail:(FlightViewerFPDetail *)fpDetail
 {
@@ -66,6 +70,59 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self.mapView setRegion:(MKCoordinateRegion){{39.8, -98.2}, {35, 60}} animated:YES];
+    
+    // fp
+    
+    // Create a MKPolyline
+    MKMapPoint* pointArr = malloc(sizeof(CLLocationCoordinate2D) * 2);
+    
+    //for (int i = 0; i<2; i++) {
+    int i = 0;
+        CLLocationDegrees latitude = [[self.fpDetail.latitude objectAtIndex:i] doubleValue];
+        CLLocationDegrees longitude = [[self.fpDetail.longitude objectAtIndex:i] doubleValue];
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+        
+        MKMapPoint point = MKMapPointForCoordinate(coordinate);
+        
+        pointArr[i] = point;
+    //}
+    
+    i = [self.fpDetail.latitude count] - 1;
+         latitude = [[self.fpDetail.latitude objectAtIndex:i] doubleValue];
+         longitude = [[self.fpDetail.longitude objectAtIndex:i] doubleValue];
+         coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+    
+         point = MKMapPointForCoordinate(coordinate);
+    
+        pointArr[1] = point;
+    
+    
+    self.fpRouteLine = [MKPolyline polylineWithPoints:pointArr count:2];
+    free(pointArr);
+    
+    // Add the polyline (as a MKOverlay) to the map
+    
+    [self.mapView addOverlay:self.fpRouteLine];
+    
+    
+}
+
+// Implement mapView:viewForOverlay: in your MKMapViewDelegate
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id )overlay
+{
+    MKOverlayView* overlayView = nil;
+    
+    if (overlay == self.fpRouteLine) {
+        //if we have not yet created an overlay view for this overlay, create it now.
+        // Initialize, set values on, and return a MKPolylineView from your updated map view delegate
+        if (nil == self.fpRouteLineView) {
+            self.fpRouteLineView = [[MKPolylineView alloc] initWithPolyline:self.fpRouteLine];
+            self.fpRouteLineView.strokeColor = [UIColor redColor];
+            self.fpRouteLineView.lineWidth = 2.0;
+        }
+        overlayView = self.fpRouteLineView;
+    }
+    return overlayView;
 }
 
 - (void)viewDidUnload
