@@ -23,13 +23,27 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetLineWidth(context, 2.0);
+    
+    UIColor *color = [UIColor blackColor];
+    CGContextSetStrokeColorWithColor(context, color.CGColor);
+    
+    CGContextMoveToPoint(context, 30, 290);
+    CGContextAddLineToPoint(context, 460, 290);
+    
+    CGContextMoveToPoint(context, 30, 290);
+    CGContextAddLineToPoint(context, 30, 20);
+    
+    CGContextStrokePath(context);
+    
+    UILabel *originLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 290, 10, 12)];
+    originLabel.text = @"0";
+    originLabel.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    [self addSubview:originLabel];
 }
-*/
 
 @end
