@@ -75,13 +75,19 @@ static NSUInteger kNumberOfPages = 2;
     UIViewController *currentViewController = [self.subViewControllers objectAtIndex:page];
     if ((NSNull *)currentViewController == [NSNull null]) {
         // here we initialize C1 or C2
+        FlightViewerSubViewMapController *mapController = nil;
+        FlightViewerSubViewGraphController *graphController = nil;
         switch (page) {
             case 0:
-                currentViewController = [[FlightViewerSubViewMapController alloc] initWithFPDetail:self.fpDetail];
+                mapController = [[FlightViewerSubViewMapController alloc] initWithNibName:@"FlightViewerSubViewMapController" bundle:nil];
+                mapController.fpDetail = self.fpDetail;
+                currentViewController = mapController;
                 break;
                 
             case 1:
-                currentViewController = [[FlightViewerSubViewGraphController alloc] initWithFPDetail:self.fpDetail];
+                graphController = [[FlightViewerSubViewGraphController alloc] initWithNibName:@"FlightViewerSubViewGraphController" bundle:nil];
+                graphController.fpDetail = self.fpDetail;
+                currentViewController = graphController;
                 break;
                 
             default:

@@ -11,6 +11,6 @@
 
 @interface FlightViewerSubViewGraphController : UIViewController
 
-- (id)initWithFPDetail:(FlightViewerFPDetail *)fpDetail;
+@property (nonatomic, strong) FlightViewerFPDetail *fpDetail;
 
 @end

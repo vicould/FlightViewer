@@ -14,6 +14,7 @@
 
 @interface FlightViewerSubViewMapController : UIViewController <MKMapViewDelegate>
 
-- (id)initWithFPDetail:(FlightViewerFPDetail *)fpDetail;
+@property (nonatomic, strong) FlightViewerFPDetail *fpDetail;
+
 
 @end
