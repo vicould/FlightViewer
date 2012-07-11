@@ -17,4 +17,12 @@
 @property (readonly, strong) NSArray *latitude;
 @property (readonly, strong) NSString *flightPlan;
 
+@property (readonly, strong) NSString *acFlightId;
+@property (readonly, strong) NSString *acType;
+@property (readonly, strong) NSString *airportDeparture;
+@property (readonly, strong) NSString *departureTime;
+@property (readonly, strong) NSString *airportArrival;
+@property (readonly, strong) NSString *arrivalTime;
+
+
 @end

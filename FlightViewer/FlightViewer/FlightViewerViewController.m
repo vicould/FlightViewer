@@ -10,8 +10,10 @@
 #import "FlightViewerFPDetail.h"
 #import "FlightViewerSubViewGraphController.h"
 #import "FlightViewerSubViewMapController.h"
+#import "FlightViewerSubViewFlightInfoController.h"
 
-static NSUInteger kNumberOfPages = 2;
+
+static NSUInteger kNumberOfPages = 3;
 
 @interface FlightViewerViewController ()
 
@@ -88,16 +90,25 @@ static NSUInteger kNumberOfPages = 2;
         // here we initialize C1 or C2
         FlightViewerSubViewMapController *mapController = nil;
         FlightViewerSubViewGraphController *graphController = nil;
+        FlightViewerSubViewFlightInfoController *flightInfoController = nil;
         switch (page) {
+                
             case 0:
-                // page 0, the map
+                // page 0, flight info
+                flightInfoController = [[FlightViewerSubViewFlightInfoController alloc] initWithNibName:@"FlightViewerSubViewFlightInfoController" bundle:nil];
+                flightInfoController.fpDetail = self.fpDetail;
+                currentViewController = flightInfoController;
+                break;
+                
+            case 1:
+                // page 1, the map
                 mapController = [[FlightViewerSubViewMapController alloc] initWithNibName:@"FlightViewerSubViewMapController" bundle:nil];
                 mapController.fpDetail = self.fpDetail;
                 currentViewController = mapController;
                 break;
                 
-            case 1:
-                // page 1, the graph
+            case 2:
+                // page 2, the graph
                 graphController = [[FlightViewerSubViewGraphController alloc] initWithNibName:@"FlightViewerSubViewGraphController" bundle:nil];
                 graphController.fpDetail = self.fpDetail;
                 currentViewController = graphController;
