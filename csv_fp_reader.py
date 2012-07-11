@@ -14,8 +14,16 @@ def read_columns(csv):
         longitude.append("[NSNumber numberWithDouble:" + lng + "]")
         latitude.append("[NSNumber numberWithDouble:" + lat + "]")
         altitude.append("[NSNumber numberWithDouble:" + alt + "]")
-        speed.append("[NSNumber numberWithDouble:" + gnd_speed.replace('\n', '') + "]")
-        date.append("[formatter dateFromString:@\"" + ' '.join([hit_date, hit_time, '+0000']) + "\"]")
+        speed.append(
+                "[NSNumber numberWithDouble:"
+                + gnd_speed.replace('\n', '')
+                + "]"
+                )
+        date.append(
+                "[formatter dateFromString:@\""
+                + ' '.join([hit_date, hit_time, '+0000'])
+                + "\"]"
+                )
 
     return {
             'date': date,
