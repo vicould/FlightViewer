@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51550B6615AD13FA00DA1FFF /* Centers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51550B6515AD13FA00DA1FFF /* Centers.plist */; };
 		51987E8115A8C30C00A6484A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51987E8015A8C30C00A6484A /* UIKit.framework */; };
 		51987E8315A8C30C00A6484A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51987E8215A8C30C00A6484A /* Foundation.framework */; };
 		51987E8515A8C30C00A6484A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51987E8415A8C30C00A6484A /* CoreGraphics.framework */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51550B6515AD13FA00DA1FFF /* Centers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Centers.plist; sourceTree = "<group>"; };
 		51987E7C15A8C30C00A6484A /* FlightViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51987E8015A8C30C00A6484A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		51987E8215A8C30C00A6484A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,6 +129,7 @@
 		51987E8715A8C30C00A6484A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				51550B6515AD13FA00DA1FFF /* Centers.plist */,
 				51987E8815A8C30C00A6484A /* FlightViewer-Info.plist */,
 				51987E8915A8C30C00A6484A /* InfoPlist.strings */,
 				51987E8C15A8C30C00A6484A /* main.m */,
@@ -217,6 +220,7 @@
 				51987E9715A8C30C00A6484A /* MainStoryboard_iPad.storyboard in Resources */,
 				51987EC115AA3C8600A6484A /* FlightViewerSubViewMapController.xib in Resources */,
 				51987EC315AA481900A6484A /* FlightViewerSubViewGraphController.xib in Resources */,
+				51550B6615AD13FA00DA1FFF /* Centers.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +361,7 @@
 				51987E9F15A8C30C00A6484A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

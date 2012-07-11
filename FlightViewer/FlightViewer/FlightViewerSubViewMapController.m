@@ -17,6 +17,7 @@
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) MKPolyline *fpRouteLine;
 @property (nonatomic, strong) MKPolylineView *fpRouteLineView;
+@property (nonatomic, strong) NSMutableDictionary *centersOverlaysMapping;
 
 @end
 
@@ -26,34 +27,14 @@
 @synthesize mapView = _mapView;
 @synthesize fpRouteLine = _fpRouteLine;
 @synthesize fpRouteLineView = _fpRouteLineView;
+@synthesize centersOverlaysMapping = _centersOverlaysMapping;
 
-- (id)initWithFPDetail:(FlightViewerFPDetail *)fpDetail
+- (NSMutableDictionary *)centersOverlaysMapping
 {
-    self = [super init];
-    if (self) {
-        // Custom initialization
-        self.fpDetail = fpDetail;
-        
-        // Create subview V1
-//        MKMapView *map = [[MKMapView alloc] init];
-//        map.zoomEnabled = NO;
-//        map.scrollEnabled = YES;
-//        map.mapType = MKMapTypeStandard;
-//        
-//        MKCoordinateSpan span = MKCoordinateSpanMake(0.4, 0.4);
-//        CLLocationCoordinate2D center = CLLocationCoordinate2DMake(37.779, -122.419);
-//        MKCoordinateRegion region = MKCoordinateRegionMake(center, span);
-//        [map setRegion:region animated:YES];
-//        self.view = map;
-//        
-//        FlightViewerSubViewPath *subView = [[FlightViewerSubViewPath alloc] init];
-//        subView.longitude = [self.fpDetail.longitude copy];
-//        subView.latitude = [self.fpDetail.latitude copy];
-//        subView.flightPlan = [self.fpDetail.flightPlan copy];
-        
-        
+    if (!_centersOverlaysMapping) {
+        _centersOverlaysMapping = [NSMutableDictionary dictionary];
     }
-    return self;
+    return _centersOverlaysMapping;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -74,7 +55,7 @@
     // fp
     
     // Create a MKPolyline
-    MKMapPoint* pointArr = malloc(sizeof(CLLocationCoordinate2D) * self.fpDetail.latitude.count);
+    MKMapPoint* pointArr = malloc(sizeof(MKMapPoint) * self.fpDetail.latitude.count);
     
     for (int i = 0; i<self.fpDetail.latitude.count; i++) {
         CLLocationDegrees latitude = [[self.fpDetail.latitude objectAtIndex:i] doubleValue];
@@ -93,6 +74,8 @@
     
     [self.mapView addOverlay:self.fpRouteLine];
     
+    // display sectors
+    [self displaySectorsInTheMap];
     
 }
 
@@ -111,7 +94,49 @@
         }
         overlayView = self.fpRouteLineView;
     }
+    else {
+        overlayView = [self.centersOverlaysMapping objectForKey:((id<MKAnnotation>)overlay).title];
+        if (overlayView) {
+            if ((NSNull *)overlayView == [NSNull null] ) {
+                MKPolygonView *polygonView = [[MKPolygonView alloc] initWithPolygon:overlay];
+                polygonView.strokeColor = [UIColor blackColor];
+                polygonView.lineWidth = 1.0;
+                overlayView = polygonView;
+                [self.centersOverlaysMapping setObject:polygonView forKey:((id<MKAnnotation>)overlay).title];
+            }
+        }
+    }
     return overlayView;
+}
+
+- (void)displaySectorsInTheMap
+{
+    // read file and iterate over the sectors
+    NSString *centersPlistPath = [[NSBundle mainBundle] pathForResource:@"Centers" ofType:@"plist"];
+    NSDictionary *centers = [NSDictionary dictionaryWithContentsOfFile:centersPlistPath];
+    
+    for (NSString *key in centers) {
+   
+        // Create a MKPolygon for 1 sector
+        NSArray *centerCoordinates = [centers objectForKey:key];
+        int numberOfPoints = [centerCoordinates count];
+        
+        CLLocationCoordinate2D *coordinatesArr = malloc(sizeof(CLLocationCoordinate2D) * numberOfPoints);
+        for (int i = 0; i < numberOfPoints; i++) {
+            CLLocationDegrees latitude = [[[centerCoordinates objectAtIndex:i] objectAtIndex:0] doubleValue];
+            CLLocationDegrees longitude = [[[centerCoordinates objectAtIndex:i] objectAtIndex:1] doubleValue];
+            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+            coordinatesArr[i] = coordinate;
+        }
+        
+        MKPolygon *centerPolygon = [MKPolygon polygonWithCoordinates:coordinatesArr count:numberOfPoints];
+        centerPolygon.title = key;
+        [self.centersOverlaysMapping setObject:[NSNull null] forKey:key];
+        free(coordinatesArr);
+        
+        // Add the polyline (as a MKOverlay) to the map
+        [self.mapView addOverlay:centerPolygon];
+     }
 }
 
 - (void)viewDidUnload
