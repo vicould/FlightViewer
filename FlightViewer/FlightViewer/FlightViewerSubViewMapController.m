@@ -9,8 +9,6 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "FlightViewerSubViewMapController.h"
-#import "FlightViewerSubViewPath.h"
-
 
 @interface FlightViewerSubViewMapController ()
 
@@ -37,19 +35,13 @@
     return _centersOverlaysMapping;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
+    
     [self.mapView setRegion:(MKCoordinateRegion){{39.8, -98.2}, {35, 60}} animated:YES];
     
     // fp
@@ -77,6 +69,18 @@
     // display sectors
     [self displaySectorsInTheMap];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]))
+    {
+        [UIView beginAnimations:@"map" context:nil];
+        [self.navigationController.view setTransform: CGAffineTransformMakeRotation(M_PI / 2)];
+        [self.navigationController.view setFrame:CGRectMake(0, 0, 320, 480)];
+        [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, 480, 32)];
+        [UIView commitAnimations];
+    }
 }
 
 // Implement mapView:viewForOverlay: in your MKMapViewDelegate
@@ -139,6 +143,10 @@
      }
 }
 
+- (IBAction)toggleNavigationBar:(id)sender {
+    [self.navigationController setNavigationBarHidden:!self.navigationController.navigationBarHidden animated:NO];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -147,7 +155,10 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return YES;
+    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        return YES;
+    }
+    return NO;
 }
 
 @end
