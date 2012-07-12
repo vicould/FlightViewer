@@ -19,7 +19,7 @@
 @implementation FlightViewerSubViewGraphController
 
 @synthesize fpDetail = _fpDetail;
-@synthesize graphView = _subView;
+@synthesize graphView = _graphView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

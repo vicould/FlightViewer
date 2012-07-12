@@ -44,6 +44,8 @@
     originLabel.text = @"0";
     originLabel.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
     [self addSubview:originLabel];
+    
+    // add code for graph
 }
 
 @end
