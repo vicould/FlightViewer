@@ -46,6 +46,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
     // Do any additional setup after loading the view from its nib.
     self.acFlightId.text = self.fpDetail.acFlightId;
     self.acType.text = self.fpDetail.acType;
@@ -55,6 +56,30 @@
     self.arrivalTime.text = self.fpDetail.arrivalTime;
     self.routeFP.text = self.fpDetail.flightPlan;
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]))
+    {
+        [UIView beginAnimations:@"info" context:nil];
+        [self.navigationController.view setTransform: CGAffineTransformMakeRotation(M_PI / 2)];
+        [self.navigationController.view setFrame:CGRectMake(0, 0, 320, 480)];
+        [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, 480, 32)];
+        [UIView commitAnimations];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]))
+    {
+        [UIView beginAnimations:@"info" context:nil];
+        [self.navigationController.view setTransform: CGAffineTransformMakeRotation(0)];
+        [self.navigationController.view setFrame:CGRectMake(0, 0, 320, 480)];
+        [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, 320, 44)];
+        [UIView commitAnimations];
+    }
 }
 
 - (void)viewDidUnload
