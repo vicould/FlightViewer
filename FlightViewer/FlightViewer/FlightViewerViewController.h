@@ -11,5 +11,5 @@
 /*
  * The root controller of the application. 
  */
-@interface FlightViewerViewController : UIViewController 
+@interface FlightViewerViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 @end

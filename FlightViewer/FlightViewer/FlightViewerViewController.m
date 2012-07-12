@@ -20,6 +20,85 @@
 
 @synthesize fpDetail = _fpDetail;
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 3;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 3;
+    }
+    else if (section == 1) {
+        return 2;
+    }
+    else {
+        return 2;
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"A/C information";
+    }
+    else if (section == 1) {
+        return @"Departure information";
+    }
+    else {
+        return @"Arrival information";
+    }
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell;
+    cell = [self.tableView dequeueReusableCellWithIdentifier:@"flight info"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:@"flight info"];
+    }
+    
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"Flight";
+            cell.detailTextLabel.text = self.fpDetail.acFlightId;
+        } 
+        else if (indexPath.row == 1) {
+            cell.textLabel.text = @"Type";
+            cell.detailTextLabel.text = self.fpDetail.acType;
+        } 
+        else {
+            cell.textLabel.text = @"Route";
+            cell.detailTextLabel.text = self.fpDetail.flightPlan;
+            cell.detailTextLabel.lineBreakMode = UILineBreakModeCharacterWrap;
+            cell.detailTextLabel.numberOfLines = 0;
+        }
+    }
+    else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"Airport";
+            cell.detailTextLabel.text = self.fpDetail.airportDeparture;
+        }
+        else if (indexPath.row == 1) {
+            cell.textLabel.text = @"Time";
+            cell.detailTextLabel.text = self.fpDetail.departureTime;
+        }
+    }
+    else {
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"Airport";
+            cell.detailTextLabel.text = self.fpDetail.airportArrival;
+        }
+        else if (indexPath.row == 1) {
+            cell.textLabel.text = @"Time";
+            cell.detailTextLabel.text = self.fpDetail.arrivalTime;
+        }
+    }
+    return cell;
+}
+
 - (FlightViewerFPDetail *)fpDetail
 {
     if (!_fpDetail) {
