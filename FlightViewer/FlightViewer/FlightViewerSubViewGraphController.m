@@ -78,12 +78,17 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+    if (UIInterfaceOrientationIsLandscape(interfaceOrientation)) {
         return YES;
+    } else {
+        [UIView setAnimationsEnabled:NO];
+        return NO;
     }
-    return NO;
 }
 
-
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [UIView setAnimationsEnabled:YES];
+}
 
 @end
