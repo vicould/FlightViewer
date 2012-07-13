@@ -99,6 +99,20 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        if ([self.fpDetail.flightPlan length] <= 16) {
+            return tableView.rowHeight;
+        } else {
+            CGSize detailSize = [self.fpDetail.flightPlan sizeWithFont:[UIFont systemFontOfSize:20] constrainedToSize:CGSizeMake(270, 4000) lineBreakMode:UILineBreakModeCharacterWrap];
+            return detailSize.height + 12;
+        }
+    } else {
+        return tableView.rowHeight;
+    }
+}
+
 - (FlightViewerFPDetail *)fpDetail
 {
     if (!_fpDetail) {

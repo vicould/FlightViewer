@@ -188,38 +188,6 @@
             <point key="canvasLocation" x="784" y="-206"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="FlightViewerSubViewFlightInfoController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerSubViewFlightInfoController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="acFlightId" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="acType" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="airportArrival" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="airportDeparture" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="arrivalTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="departureTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="routeFP" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FlightViewerSubViewGraph" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerSubViewGraph.h"/>
-        </class>
-        <class className="FlightViewerSubViewGraphController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerSubViewGraphController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="graphView" candidateClass="FlightViewerSubViewGraph"/>
-            </relationships>
-        </class>
-        <class className="FlightViewerSubViewMapController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerSubViewMapController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="FlightViewerViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
