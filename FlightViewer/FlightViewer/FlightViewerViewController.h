@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FlightViewerFPDetail.h"
 
 /*
  * The root controller of the application. 
  */
 @interface FlightViewerViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) FlightViewerFPDetail *fpDetail;
+
 @end

@@ -7,12 +7,9 @@
 //
 
 #import "FlightViewerViewController.h"
-#import "FlightViewerFPDetail.h"
 
 
 @interface FlightViewerViewController ()
-
-@property (nonatomic, strong) FlightViewerFPDetail *fpDetail;
 
 @end
 

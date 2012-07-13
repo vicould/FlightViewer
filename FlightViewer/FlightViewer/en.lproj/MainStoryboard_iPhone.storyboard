@@ -17,11 +17,53 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="kco-8B-02f" kind="relationship" relationship="rootViewController" id="z7b-k5-Npn"/>
+                        <segue destination="lf1-Lo-bdU" kind="relationship" relationship="rootViewController" id="1On-eT-uJU"/>
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-613" y="101"/>
+            <point key="canvasLocation" x="-789" y="95"/>
+        </scene>
+        <!--Flight Viewer Top View Controller-->
+        <scene sceneID="nem-cA-e8S">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h5l-oc-GO1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="lf1-Lo-bdU" customClass="FlightViewerTopViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gtn-zD-LBh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="flight id" textLabel="5Mu-lA-LiQ" style="IBUITableViewCellStyleDefault" id="FU9-5W-KDl">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Mu-lA-LiQ">
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="kco-8B-02f" kind="push" identifier="flight id" id="7xp-9E-nm1"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lf1-Lo-bdU" id="ece-6v-uOo"/>
+                            <outlet property="delegate" destination="lf1-Lo-bdU" id="rBh-Je-RT4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Xoz-J4-7Xg"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-271" y="95"/>
         </scene>
         <!--Flight Viewer Sub View Map Controller - Flight path-->
         <scene sceneID="P3Y-yQ-8Us">
@@ -174,7 +216,7 @@
                     <navigationItem key="navigationItem" id="vzs-hG-okb"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="165" y="101"/>
+            <point key="canvasLocation" x="227" y="83"/>
         </scene>
         <!--Flight Viewer Sub View Flight Info Controller - Detail-->
         <scene sceneID="Zdd-09-3IS">
@@ -215,6 +257,9 @@
             <relationships>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
             </relationships>
+        </class>
+        <class className="FlightViewerTopViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerTopViewController.h"/>
         </class>
         <class className="FlightViewerViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerViewController.h"/>
