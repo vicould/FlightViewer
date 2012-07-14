@@ -51,6 +51,7 @@
         [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, 480, 32)];
         [UIView commitAnimations];
     }
+    [super viewWillAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -63,6 +64,8 @@
         [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, 320, 44)];
         [UIView commitAnimations];
     }
+    [UIView setAnimationsEnabled:YES];
+    [super viewWillDisappear:animated];
 }
 
 - (IBAction)toggleNavigationBar:(id)sender {
