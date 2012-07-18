@@ -107,7 +107,7 @@
         <scene sceneID="uQ0-4p-ebS">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6R-bt-eLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="H and V profiles" id="zey-pL-F1Z" customClass="FlightViewerSubViewGraphController" sceneMemberID="viewController">
+                <viewController title="H and V profiles" wantsFullScreenLayout="YES" id="zey-pL-F1Z" customClass="FlightViewerSubViewGraphController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iu7-3O-H7Y" customClass="FlightViewerSubViewGraph">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -218,31 +218,8 @@
             </objects>
             <point key="canvasLocation" x="227" y="83"/>
         </scene>
-        <!--Flight Viewer Sub View Flight Info Controller - Detail-->
-        <scene sceneID="Zdd-09-3IS">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x8U-EM-kgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="Detail" id="SVV-gN-BYo" customClass="FlightViewerSubViewFlightInfoController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="N4e-Cd-gGU"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="784" y="-206"/>
-        </scene>
     </scenes>
     <classes>
-        <class className="FlightViewerSubViewFlightInfoController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerSubViewFlightInfoController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="acFlightId" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="acType" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="airportArrival" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="airportDeparture" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="arrivalTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="departureTime" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="routeFP" candidateClass="UILabel"/>
-            </relationships>
-        </class>
         <class className="FlightViewerSubViewGraph" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerSubViewGraph.h"/>
         </class>
