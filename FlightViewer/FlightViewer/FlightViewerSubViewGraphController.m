@@ -13,6 +13,7 @@
 
 // an outlet to keep track of the main view of this controller, which is the graph.
 @property (nonatomic, strong) IBOutlet FlightViewerSubViewGraph *graphView;
+- (IBAction)toggleNavigationBar:(id)sender;
 
 @end
 
@@ -35,10 +36,12 @@
     [super viewDidLoad];
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
 	// Do any additional setup after loading the view.
+    
     // Passes useful information for subview V2
     self.graphView.altitude = [self.fpDetail.altitude copy];
     self.graphView.speed = [self.fpDetail.speed copy];
     self.graphView.time = [self.fpDetail.time copy];
+    [self.graphView setNeedsDisplay];
 }
 
 - (void)viewWillAppear:(BOOL)animated
