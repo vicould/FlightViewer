@@ -70,12 +70,14 @@
     // y axis label bottom left
     UILabel *originBotLeftLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 278, 10, 12)];
     originBotLeftLabel.text = @"0";
+    originBotLeftLabel.font = [UIFont systemFontOfSize:12];
     originBotLeftLabel.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
     [self addSubview:originBotLeftLabel];
     
     // y axis label Top left
-    UILabel *originTopLeftLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 15, 50, 22)];
+    UILabel *originTopLeftLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 5, 50, 12)];
     originTopLeftLabel.text = @"V";
+    originTopLeftLabel.font = [UIFont systemFontOfSize:12];
     originTopLeftLabel.textColor = [UIColor purpleColor];
     originTopLeftLabel.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
     [self addSubview:originTopLeftLabel];
@@ -83,12 +85,14 @@
     // y axis label bottom right
     UILabel *originBotRightLabel = [[UILabel alloc] initWithFrame:CGRectMake(454, 278, 10, 12)];
     originBotRightLabel.text = @"0";
+    originBotRightLabel.font = [UIFont systemFontOfSize:12];
     originBotRightLabel.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
     [self addSubview:originBotRightLabel];
     
     // y axis label Top right
-    UILabel *originTopRightLabel = [[UILabel alloc] initWithFrame:CGRectMake(458, 15, 50, 22)];
+    UILabel *originTopRightLabel = [[UILabel alloc] initWithFrame:CGRectMake(458, 5, 50, 12)];
     originTopRightLabel.text = @"FL";
+    originTopRightLabel.font = [UIFont systemFontOfSize:12];
     originTopRightLabel.textColor = [UIColor blueColor];
     originTopRightLabel.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
     [self addSubview:originTopRightLabel];
@@ -106,7 +110,7 @@
         CGPoint hStart;
         int t0 = [[self.time objectAtIndex:0] timeIntervalSince1970];
         double ratioTime = 420.0 / ([[self.time objectAtIndex:([self.time count] - 1)] timeIntervalSince1970] - t0);
-        double ratioAltitude = - 270.0 / 39000.0;
+        double ratioAltitude = - 270.0 / 40000.0;
         hStart.x = 30.0;
         hStart.y = ([[self.altitude objectAtIndex:0] doubleValue]) * ratioAltitude + 290.0;
         
@@ -138,6 +142,108 @@
         CGContextStrokePath(context);
 
     }
+    
+    // scale of the y axis -> v 0 to 600 LEFT
+    
+    CGContextBeginPath(context);
+    CGContextSetLineWidth(context, 2.0);
+    [[UIColor purpleColor] setStroke];
+    
+    // y axis label Top left
+    UILabel *LeftLabel100 = [[UILabel alloc] initWithFrame:CGRectMake(5, 242, 50, 8)];
+    LeftLabel100.text = @"100";
+    LeftLabel100.font = [UIFont systemFontOfSize:12];
+    LeftLabel100.textColor = [UIColor purpleColor];
+    LeftLabel100.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    [self addSubview:LeftLabel100];
+    CGContextMoveToPoint(context, 26, 245);
+    CGContextAddLineToPoint(context, 34, 245);
+   
+    UILabel *LeftLabel200 = [[UILabel alloc] initWithFrame:CGRectMake(5, 197, 50, 8)];
+    LeftLabel200.text = @"200";
+    LeftLabel200.font = [UIFont systemFontOfSize:12];
+    LeftLabel200.textColor = [UIColor purpleColor];
+    LeftLabel200.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    [self addSubview:LeftLabel200];
+    CGContextMoveToPoint(context, 26, 200);
+    CGContextAddLineToPoint(context, 34, 200);
+    
+    UILabel *LeftLabel300 = [[UILabel alloc] initWithFrame:CGRectMake(5, 152, 50, 8)];
+    LeftLabel300.text = @"300";
+    LeftLabel300.font = [UIFont systemFontOfSize:12];
+    LeftLabel300.textColor = [UIColor purpleColor];
+    LeftLabel300.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    [self addSubview:LeftLabel300];
+    CGContextMoveToPoint(context, 26, 155);
+    CGContextAddLineToPoint(context, 34, 155);
+    
+    UILabel *LeftLabel400 = [[UILabel alloc] initWithFrame:CGRectMake(5, 107, 50, 8)];
+    LeftLabel400.text = @"400";
+    LeftLabel400.font = [UIFont systemFontOfSize:12];
+    LeftLabel400.textColor = [UIColor purpleColor];
+    LeftLabel400.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    [self addSubview:LeftLabel400];
+    CGContextMoveToPoint(context, 26, 110);
+    CGContextAddLineToPoint(context, 34, 110);
+
+    UILabel *LeftLabel500 = [[UILabel alloc] initWithFrame:CGRectMake(5, 62, 50, 8)];
+    LeftLabel500.text = @"500";
+    LeftLabel500.font = [UIFont systemFontOfSize:12];
+    LeftLabel500.textColor = [UIColor purpleColor];
+    LeftLabel500.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    [self addSubview:LeftLabel500];
+    CGContextMoveToPoint(context, 26, 65);
+    CGContextAddLineToPoint(context, 34, 65);
+    
+    CGContextStrokePath(context);
+    
+    // scale of the y axis -> h 0 to 390 RIGHT
+    
+    CGContextBeginPath(context);
+    CGContextSetLineWidth(context, 2.0);
+    [[UIColor blueColor] setStroke];
+    
+    // y axis label Top left
+    UILabel *RightLabel100 = [[UILabel alloc] initWithFrame:CGRectMake(455, 219.5, 50, 8)];
+    RightLabel100.text = @"100";
+    RightLabel100.font = [UIFont systemFontOfSize:12];
+    RightLabel100.textColor = [UIColor blueColor];
+    RightLabel100.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    [self addSubview:RightLabel100];
+    CGContextMoveToPoint(context, 446, 222.5);
+    CGContextAddLineToPoint(context, 454, 222.5);
+    
+    UILabel *RightLabel200 = [[UILabel alloc] initWithFrame:CGRectMake(455, 152, 50, 8)];
+    RightLabel200.text = @"200";
+    RightLabel200.font = [UIFont systemFontOfSize:12];
+    RightLabel200.textColor = [UIColor blueColor];
+    RightLabel200.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    [self addSubview:RightLabel200];
+    CGContextMoveToPoint(context, 446, 155);
+    CGContextAddLineToPoint(context, 454, 155);
+    
+    UILabel *RightLabel300 = [[UILabel alloc] initWithFrame:CGRectMake(455, 84.5, 50, 8)];
+    RightLabel300.text = @"300";
+    RightLabel300.font = [UIFont systemFontOfSize:12];
+    RightLabel300.textColor = [UIColor blueColor];
+    RightLabel300.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    [self addSubview:RightLabel300];
+    CGContextMoveToPoint(context, 446, 87.5);
+    CGContextAddLineToPoint(context, 454, 87.5);
+    
+    UILabel *RightLabel390 = [[UILabel alloc] initWithFrame:CGRectMake(455, 23.75, 50, 8)];
+    RightLabel390.text = @"390";
+    RightLabel390.font = [UIFont systemFontOfSize:12];
+    RightLabel390.textColor = [UIColor blueColor];
+    RightLabel390.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    [self addSubview:RightLabel390];
+    CGContextMoveToPoint(context, 446, 26.75);
+    CGContextAddLineToPoint(context, 454, 26.75);
+ 
+    CGContextStrokePath(context);
+
+    
+   
 }
 
 @end
