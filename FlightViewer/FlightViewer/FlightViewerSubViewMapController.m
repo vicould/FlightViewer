@@ -69,6 +69,7 @@
     // display sectors
     [self displaySectorsInTheMap];
     
+    self.title = [NSString stringWithFormat:@"Flight path from %@ to %@", self.fpDetail.airportDeparture, self.fpDetail.airportArrival];    
 }
 
 - (void)viewWillAppear:(BOOL)animated

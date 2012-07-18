@@ -42,6 +42,7 @@
     self.graphView.speed = [self.fpDetail.speed copy];
     self.graphView.time = [self.fpDetail.time copy];
     [self.graphView setNeedsDisplay];
+    self.title = @"V and FL time history profiles";
 }
 
 - (void)viewWillAppear:(BOOL)animated

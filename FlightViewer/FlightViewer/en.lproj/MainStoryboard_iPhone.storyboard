@@ -118,7 +118,7 @@
                             <outletCollection property="gestureRecognizers" destination="BhZ-7b-q8q" appends="YES" id="GK3-uY-oOz"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="Dd1-kx-SsK"/>
+                    <navigationItem key="navigationItem" title="V and FL time history profiles" id="Dd1-kx-SsK"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackTranslucent" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
@@ -205,6 +205,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
