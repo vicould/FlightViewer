@@ -9,6 +9,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "FlightViewerSubViewMapController.h"
+#import "RoutePoint.h"
 
 @interface FlightViewerSubViewMapController ()
 
@@ -21,7 +22,8 @@
 
 @implementation FlightViewerSubViewMapController
 
-@synthesize fpDetail = _fpDetail;
+@synthesize flightPoints = _flightPoints;
+@synthesize flightInfo = _flightInfo;
 @synthesize mapView = _mapView;
 @synthesize fpRouteLine = _fpRouteLine;
 @synthesize fpRouteLineView = _fpRouteLineView;
@@ -47,11 +49,13 @@
     // fp
     
     // Create a MKPolyline
-    MKMapPoint* pointArr = malloc(sizeof(MKMapPoint) * self.fpDetail.latitude.count);
+    MKMapPoint* pointArr = malloc(sizeof(MKMapPoint) * self.flightPoints.count);
     
-    for (int i = 0; i<self.fpDetail.latitude.count; i++) {
-        CLLocationDegrees latitude = [[self.fpDetail.latitude objectAtIndex:i] doubleValue];
-        CLLocationDegrees longitude = [[self.fpDetail.longitude objectAtIndex:i] doubleValue];
+    for (int i = 0; i < self.flightPoints.count; i++) {
+        RoutePoint *routePoint = [self.flightPoints objectAtIndex:i];
+        
+        CLLocationDegrees latitude = [routePoint.latitude doubleValue];
+        CLLocationDegrees longitude = [routePoint.longitude doubleValue];
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
         
         MKMapPoint point = MKMapPointForCoordinate(coordinate);
@@ -59,7 +63,7 @@
         pointArr[i] = point;
     }
     
-    self.fpRouteLine = [MKPolyline polylineWithPoints:pointArr count:self.fpDetail.latitude.count];
+    self.fpRouteLine = [MKPolyline polylineWithPoints:pointArr count:self.flightPoints.count];
     free(pointArr);
     
     // Add the polyline (as a MKOverlay) to the map
@@ -69,7 +73,7 @@
     // display sectors
     [self displaySectorsInTheMap];
     
-    self.title = [NSString stringWithFormat:@"Flight path from %@ to %@", self.fpDetail.airportDeparture, self.fpDetail.airportArrival];    
+    self.title = [NSString stringWithFormat:@"Flight path from %@ to %@", self.flightInfo.airportDeparture, self.flightInfo.airportArrival];    
 }
 
 - (void)viewWillAppear:(BOOL)animated
