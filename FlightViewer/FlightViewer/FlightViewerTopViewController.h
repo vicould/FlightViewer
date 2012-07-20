@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreDataTableViewController.h"
 
-@interface FlightViewerTopViewController : UITableViewController
+@interface FlightViewerTopViewController : CoreDataTableViewController
+
+@property (nonatomic, strong) UIManagedDocument *flightPlanDatabase;
 
 @end

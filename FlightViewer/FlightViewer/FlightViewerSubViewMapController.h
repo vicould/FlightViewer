@@ -10,11 +10,12 @@
 #import <MapKit/MapKit.h>
 
 #import "FlightViewerFPDetail.h"
+#import "FlightInfo.h"
 
 
 @interface FlightViewerSubViewMapController : UIViewController <MKMapViewDelegate>
 
-@property (nonatomic, strong) FlightViewerFPDetail *fpDetail;
-
+@property (nonatomic, strong) NSArray *flightPoints;
+@property (nonatomic, strong) FlightInfo *flightInfo;
 
 @end

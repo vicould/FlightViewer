@@ -115,19 +115,19 @@
                         <gestureRecognizers/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="PNG-L1-zr1" appends="YES" id="w8y-qp-x0d"/>
+                            <outletCollection property="gestureRecognizers" destination="BhZ-7b-q8q" appends="YES" id="GK3-uY-oOz"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="Dd1-kx-SsK"/>
+                    <navigationItem key="navigationItem" title="V and FL time history profiles" id="Dd1-kx-SsK"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackTranslucent" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="graphView" destination="Iu7-3O-H7Y" id="Wxm-IX-AzF"/>
+                        <outlet property="graphView" destination="Iu7-3O-H7Y" id="0w2-GZ-x16"/>
                     </connections>
                 </viewController>
-                <tapGestureRecognizer id="PNG-L1-zr1">
+                <tapGestureRecognizer id="BhZ-7b-q8q">
                     <connections>
-                        <action selector="toggleNavigationBar:" destination="zey-pL-F1Z" id="JGA-xa-zm0"/>
+                        <action selector="toggleNavigationBar:" destination="zey-pL-F1Z" id="CI1-OP-rCv"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -205,6 +205,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -226,6 +227,7 @@
         <class className="FlightViewerSubViewGraphController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerSubViewGraphController.h"/>
             <relationships>
+                <relationship kind="action" name="toggleNavigationBar:"/>
                 <relationship kind="outlet" name="graphView" candidateClass="FlightViewerSubViewGraph"/>
             </relationships>
         </class>

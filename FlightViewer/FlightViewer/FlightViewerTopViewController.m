@@ -9,24 +9,15 @@
 #import "FlightViewerTopViewController.h"
 #import "FlightViewerFPDetail.h"
 #import "FlightViewerViewController.h"
+#import "FlightInfo.h"
 
 @interface FlightViewerTopViewController ()
-
-@property (nonatomic, strong) NSArray *fpList;
 
 @end
 
 @implementation FlightViewerTopViewController
 
-@synthesize fpList = _fpList;
-
-- (NSArray *)fpList
-{
-    if (!_fpList) {
-        _fpList = [[NSArray alloc] initWithObjects:[[FlightViewerFPDetail alloc] init], nil];
-    }
-    return _fpList;
-}
+@synthesize flightPlanDatabase = _flightPlanDatabase;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -65,19 +56,53 @@
     return NO;
 }
 
+#pragma mark - Data fetching
+
+-(void)setupFetchedResultsController
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"FlightInfo"];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"acFlightId" ascending:YES]];
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.flightPlanDatabase.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
+}
+
+-(void)useDocument
+{
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[self.flightPlanDatabase.fileURL path]]) {
+        // if document does not exist
+        [self.flightPlanDatabase saveToURL:self.flightPlanDatabase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) { 
+            [self setupFetchedResultsController];
+        }];
+    } else if (self.flightPlanDatabase.documentState == UIDocumentStateClosed) {
+        // document not opened
+        [self.flightPlanDatabase openWithCompletionHandler:^(BOOL success) { 
+            [self setupFetchedResultsController];
+        }];
+    } else if (self.flightPlanDatabase.documentState == UIDocumentStateNormal) {
+        [self setupFetchedResultsController];
+    }
+}
+
+- (void)setFlightPlanDatabase:(UIManagedDocument *)flightPlanDatabase {
+    if (!_flightPlanDatabase) {
+        _flightPlanDatabase = flightPlanDatabase;
+        [self useDocument];
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (!self.flightPlanDatabase) {
+        NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+        url = [url URLByAppendingPathComponent:@"Default FlightPlan Database"];
+        self.flightPlanDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
+    }
+}
+
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return self.fpList.count;
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -88,50 +113,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:@"flight id"];
     }
     // Configure the cell...
-    cell.imageView.image = [UIImage imageNamed:@"delta"];
-    cell.textLabel.text = [(FlightViewerFPDetail *)[self.fpList objectAtIndex:indexPath.row] acFlightId];
+//    cell.imageView.image = [UIImage imageNamed:@"delta"];
+    FlightInfo *flightInfo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = flightInfo.acFlightId;
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -149,7 +136,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
      NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    [segue.destinationViewController setFpDetail:[self.fpList objectAtIndex:indexPath.row]];
+    [segue.destinationViewController setFlighInfo:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    [segue.destinationViewController setFlightDatabase:self.flightPlanDatabase];
     
 }
 

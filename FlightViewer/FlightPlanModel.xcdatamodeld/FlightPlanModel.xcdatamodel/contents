@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11E53" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="FlightInfo" representedClassName="FlightInfo" syncable="YES">
+        <attribute name="acFlightId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="acType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="airportArrival" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="airportDeparture" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="arrivalTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="departureTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="flightPlan" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="flightInfo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoutePoint" inverseName="whoFlown" inverseEntity="RoutePoint" syncable="YES"/>
+    </entity>
+    <entity name="RoutePoint" representedClassName="RoutePoint" syncable="YES">
+        <attribute name="altitude" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="whoFlown" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FlightInfo" inverseName="flightInfo" inverseEntity="FlightInfo" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="FlightInfo" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="RoutePoint" positionX="412" positionY="81" width="128" height="135"/>
+    </elements>
+</model>

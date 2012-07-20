@@ -8,17 +8,20 @@
 
 #import "FlightViewerSubViewGraphController.h"
 #import "FlightViewerSubViewGraph.h"
+#import "RoutePoint.h"
 
 @interface FlightViewerSubViewGraphController ()
 
 // an outlet to keep track of the main view of this controller, which is the graph.
 @property (nonatomic, strong) IBOutlet FlightViewerSubViewGraph *graphView;
+- (IBAction)toggleNavigationBar:(id)sender;
 
 @end
 
 @implementation FlightViewerSubViewGraphController
 
-@synthesize fpDetail = _fpDetail;
+@synthesize flightPoints = _flightPoints;
+@synthesize flightInfo = _flightInfo;
 @synthesize graphView = _graphView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,10 +38,24 @@
     [super viewDidLoad];
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
 	// Do any additional setup after loading the view.
+    
     // Passes useful information for subview V2
-    self.graphView.altitude = [self.fpDetail.altitude copy];
-    self.graphView.speed = [self.fpDetail.speed copy];
-    self.graphView.time = [self.fpDetail.time copy];
+    NSMutableArray *altitude = [NSMutableArray array];
+    NSMutableArray *speed = [NSMutableArray array];
+    NSMutableArray *time = [NSMutableArray array];
+    
+    for (RoutePoint *routePoint in self.flightPoints) {
+        [altitude addObject:routePoint.altitude];
+        [speed addObject:routePoint.speed];
+        [time addObject:routePoint.time];
+    }
+    
+    self.graphView.altitude = altitude;
+    self.graphView.speed = speed;
+    self.graphView.time = time;
+    
+    [self.graphView setNeedsDisplay];
+    self.title = @"V and FL time history profiles";
 }
 
 - (void)viewWillAppear:(BOOL)animated
