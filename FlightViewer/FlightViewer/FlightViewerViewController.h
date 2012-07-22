@@ -14,7 +14,7 @@
  */
 @interface FlightViewerViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) FlightInfo *flighInfo;
+@property (nonatomic, strong) FlightInfo *flightInfo;
 @property (nonatomic, strong) UIManagedDocument *flightDatabase;
 
 @end

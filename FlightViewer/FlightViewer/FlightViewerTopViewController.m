@@ -68,12 +68,23 @@
 }
 
 -(void)useDocument
-{
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[self.flightPlanDatabase.fileURL path]]) {
+{  
+    NSURL *databaseURL = self.flightPlanDatabase.fileURL;
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:databaseURL.path]) {
         // if document does not exist
-        [self.flightPlanDatabase saveToURL:self.flightPlanDatabase.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) { 
+        NSURL *resourceURL = [[NSBundle mainBundle] URLForResource:@"FlightViewer" withExtension:@"sqlite"];
+        NSURL *destURL = [databaseURL URLByAppendingPathComponent:@"StoreContent"];
+        [[NSFileManager defaultManager] createDirectoryAtURL:destURL withIntermediateDirectories:YES attributes:nil error:NULL];
+        NSURL *finalURL = [destURL URLByAppendingPathComponent:@"persistentStore"];
+        
+        NSError *error = nil;
+        if ([[NSFileManager defaultManager] copyItemAtURL:resourceURL toURL:finalURL error:&error]) {
+            NSLog(@"Started data copy to %@", self.flightPlanDatabase.fileURL.path);
             [self setupFetchedResultsController];
-        }];
+        } else {
+            NSLog(@"Error while copying data: %@", error);
+        }
     } else if (self.flightPlanDatabase.documentState == UIDocumentStateClosed) {
         // document not opened
         [self.flightPlanDatabase openWithCompletionHandler:^(BOOL success) { 
@@ -94,11 +105,12 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
     if (!self.flightPlanDatabase) {
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        url = [url URLByAppendingPathComponent:@"Default FlightPlan Database"];
-        self.flightPlanDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
+        url = [url URLByAppendingPathComponent:@"FlighViewerDB"];
+        UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
+        document.persistentStoreOptions = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+        self.flightPlanDatabase = document;
     }
 }
 
@@ -136,7 +148,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
      NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    [segue.destinationViewController setFlighInfo:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    [segue.destinationViewController setFlightInfo:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     [segue.destinationViewController setFlightDatabase:self.flightPlanDatabase];
     
 }
