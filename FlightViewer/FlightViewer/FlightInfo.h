@@ -1,8 +1,8 @@
 //
 //  FlightInfo.h
-//  FlightViewer
+//  FlightViewerDataCreation
 //
-//  Created by Christabelle Bosson on 07/19/12.
+//  Created by Ludovic Delaveau on 7/22/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -15,10 +15,11 @@
 
 @property (nonatomic, retain) NSString * acFlightId;
 @property (nonatomic, retain) NSString * acType;
-@property (nonatomic, retain) NSString * airportDeparture;
 @property (nonatomic, retain) NSString * airportArrival;
-@property (nonatomic, retain) NSDate * departureTime;
+@property (nonatomic, retain) NSString * airportDeparture;
 @property (nonatomic, retain) NSDate * arrivalTime;
+@property (nonatomic, retain) NSDate * departureTime;
+@property (nonatomic, retain) NSNumber * fid;
 @property (nonatomic, retain) NSString * flightPlan;
 @property (nonatomic, retain) NSSet *flightInfo;
 @end

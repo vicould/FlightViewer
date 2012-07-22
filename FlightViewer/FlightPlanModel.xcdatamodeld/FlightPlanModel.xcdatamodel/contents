@@ -7,11 +7,13 @@
         <attribute name="airportDeparture" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="arrivalTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="departureTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="fid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="flightPlan" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="flightInfo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoutePoint" inverseName="whoFlown" inverseEntity="RoutePoint" syncable="YES"/>
     </entity>
     <entity name="RoutePoint" representedClassName="RoutePoint" syncable="YES">
         <attribute name="altitude" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="speed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -19,7 +21,7 @@
         <relationship name="whoFlown" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FlightInfo" inverseName="flightInfo" inverseEntity="FlightInfo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FlightInfo" positionX="160" positionY="192" width="128" height="165"/>
-        <element name="RoutePoint" positionX="412" positionY="81" width="128" height="135"/>
+        <element name="FlightInfo" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="RoutePoint" positionX="412" positionY="81" width="128" height="150"/>
     </elements>
 </model>

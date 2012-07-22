@@ -1,8 +1,8 @@
 //
 //  RoutePoint.h
-//  FlightViewer
+//  FlightViewerDataCreation
 //
-//  Created by Christabelle Bosson on 07/19/12.
+//  Created by Ludovic Delaveau on 7/22/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -14,9 +14,10 @@
 @interface RoutePoint : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * altitude;
-@property (nonatomic, retain) NSNumber * speed;
-@property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSNumber * fid;
 @property (nonatomic, retain) NSNumber * latitude;
+@property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSNumber * speed;
 @property (nonatomic, retain) NSDate * time;
 @property (nonatomic, retain) FlightInfo *whoFlown;
 

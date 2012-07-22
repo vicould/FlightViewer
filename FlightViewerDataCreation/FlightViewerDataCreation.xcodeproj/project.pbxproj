@@ -1,0 +1,319 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8251611015B9A53E004724BA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8251610F15B9A53E004724BA /* Cocoa.framework */; };
+		8251611A15B9A53E004724BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8251611815B9A53E004724BA /* InfoPlist.strings */; };
+		8251611C15B9A53E004724BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8251611B15B9A53E004724BA /* main.m */; };
+		8251612015B9A53E004724BA /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8251611E15B9A53E004724BA /* Credits.rtf */; };
+		8251612315B9A53E004724BA /* EPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8251612215B9A53E004724BA /* EPAppDelegate.m */; };
+		8251612615B9A53E004724BA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8251612415B9A53E004724BA /* MainMenu.xib */; };
+		8251613415B9A566004724BA /* RoutePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8251613015B9A566004724BA /* RoutePoint.m */; };
+		8251613515B9A566004724BA /* FlightPlanModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 8251613115B9A566004724BA /* FlightPlanModel.xcdatamodel */; };
+		8251613F15BA174D004724BA /* arrival_ATL_flight_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8251613D15BA174D004724BA /* arrival_ATL_flight_info.plist */; };
+		8251614015BA174D004724BA /* arrival_ATL_route_points.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8251613E15BA174D004724BA /* arrival_ATL_route_points.plist */; };
+		82B6C4FB15BC994700F6028A /* FlightInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B6C4FA15BC994700F6028A /* FlightInfo.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8251610B15B9A53E004724BA /* FlightViewerDataCreation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightViewerDataCreation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8251610F15B9A53E004724BA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		8251611215B9A53E004724BA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		8251611315B9A53E004724BA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8251611415B9A53E004724BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8251611715B9A53E004724BA /* FlightViewerDataCreation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlightViewerDataCreation-Info.plist"; sourceTree = "<group>"; };
+		8251611915B9A53E004724BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8251611B15B9A53E004724BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8251611D15B9A53E004724BA /* FlightViewerDataCreation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlightViewerDataCreation-Prefix.pch"; sourceTree = "<group>"; };
+		8251611F15B9A53E004724BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		8251612115B9A53E004724BA /* EPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EPAppDelegate.h; sourceTree = "<group>"; };
+		8251612215B9A53E004724BA /* EPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPAppDelegate.m; sourceTree = "<group>"; };
+		8251612515B9A53E004724BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		8251612F15B9A566004724BA /* RoutePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoutePoint.h; path = ../../FlightViewer/FlightViewer/RoutePoint.h; sourceTree = "<group>"; };
+		8251613015B9A566004724BA /* RoutePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoutePoint.m; path = ../../FlightViewer/FlightViewer/RoutePoint.m; sourceTree = "<group>"; };
+		8251613115B9A566004724BA /* FlightPlanModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = FlightPlanModel.xcdatamodel; path = ../../FlightViewer/FlightPlanModel.xcdatamodeld/FlightPlanModel.xcdatamodel; sourceTree = "<group>"; };
+		8251613D15BA174D004724BA /* arrival_ATL_flight_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = arrival_ATL_flight_info.plist; path = ../../arrival_ATL_flight_info.plist; sourceTree = "<group>"; };
+		8251613E15BA174D004724BA /* arrival_ATL_route_points.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = arrival_ATL_route_points.plist; path = ../../arrival_ATL_route_points.plist; sourceTree = "<group>"; };
+		82B6C4F915BC994600F6028A /* FlightInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightInfo.h; path = ../../FlightViewer/FlightViewer/FlightInfo.h; sourceTree = "<group>"; };
+		82B6C4FA15BC994700F6028A /* FlightInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightInfo.m; path = ../../FlightViewer/FlightViewer/FlightInfo.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8251610815B9A53E004724BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8251611015B9A53E004724BA /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8251610015B9A53D004724BA = {
+			isa = PBXGroup;
+			children = (
+				8251611515B9A53E004724BA /* FlightViewerDataCreation */,
+				8251610E15B9A53E004724BA /* Frameworks */,
+				8251610C15B9A53E004724BA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8251610C15B9A53E004724BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8251610B15B9A53E004724BA /* FlightViewerDataCreation.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8251610E15B9A53E004724BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8251610F15B9A53E004724BA /* Cocoa.framework */,
+				8251611115B9A53E004724BA /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8251611115B9A53E004724BA /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8251611215B9A53E004724BA /* AppKit.framework */,
+				8251611315B9A53E004724BA /* CoreData.framework */,
+				8251611415B9A53E004724BA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		8251611515B9A53E004724BA /* FlightViewerDataCreation */ = {
+			isa = PBXGroup;
+			children = (
+				8251612F15B9A566004724BA /* RoutePoint.h */,
+				8251613015B9A566004724BA /* RoutePoint.m */,
+				8251613115B9A566004724BA /* FlightPlanModel.xcdatamodel */,
+				82B6C4F915BC994600F6028A /* FlightInfo.h */,
+				82B6C4FA15BC994700F6028A /* FlightInfo.m */,
+				8251612115B9A53E004724BA /* EPAppDelegate.h */,
+				8251612215B9A53E004724BA /* EPAppDelegate.m */,
+				8251612415B9A53E004724BA /* MainMenu.xib */,
+				8251611615B9A53E004724BA /* Supporting Files */,
+			);
+			path = FlightViewerDataCreation;
+			sourceTree = "<group>";
+		};
+		8251611615B9A53E004724BA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8251613D15BA174D004724BA /* arrival_ATL_flight_info.plist */,
+				8251613E15BA174D004724BA /* arrival_ATL_route_points.plist */,
+				8251611715B9A53E004724BA /* FlightViewerDataCreation-Info.plist */,
+				8251611815B9A53E004724BA /* InfoPlist.strings */,
+				8251611B15B9A53E004724BA /* main.m */,
+				8251611D15B9A53E004724BA /* FlightViewerDataCreation-Prefix.pch */,
+				8251611E15B9A53E004724BA /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8251610A15B9A53E004724BA /* FlightViewerDataCreation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8251612C15B9A53E004724BA /* Build configuration list for PBXNativeTarget "FlightViewerDataCreation" */;
+			buildPhases = (
+				8251610715B9A53E004724BA /* Sources */,
+				8251610815B9A53E004724BA /* Frameworks */,
+				8251610915B9A53E004724BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlightViewerDataCreation;
+			productName = FlightViewerDataCreation;
+			productReference = 8251610B15B9A53E004724BA /* FlightViewerDataCreation.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8251610215B9A53D004724BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EP;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 8251610515B9A53D004724BA /* Build configuration list for PBXProject "FlightViewerDataCreation" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8251610015B9A53D004724BA;
+			productRefGroup = 8251610C15B9A53E004724BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8251610A15B9A53E004724BA /* FlightViewerDataCreation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8251610915B9A53E004724BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8251611A15B9A53E004724BA /* InfoPlist.strings in Resources */,
+				8251612015B9A53E004724BA /* Credits.rtf in Resources */,
+				8251612615B9A53E004724BA /* MainMenu.xib in Resources */,
+				8251613F15BA174D004724BA /* arrival_ATL_flight_info.plist in Resources */,
+				8251614015BA174D004724BA /* arrival_ATL_route_points.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8251610715B9A53E004724BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8251611C15B9A53E004724BA /* main.m in Sources */,
+				8251612315B9A53E004724BA /* EPAppDelegate.m in Sources */,
+				8251613415B9A566004724BA /* RoutePoint.m in Sources */,
+				8251613515B9A566004724BA /* FlightPlanModel.xcdatamodel in Sources */,
+				82B6C4FB15BC994700F6028A /* FlightInfo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8251611815B9A53E004724BA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8251611915B9A53E004724BA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8251611E15B9A53E004724BA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8251611F15B9A53E004724BA /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		8251612415B9A53E004724BA /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8251612515B9A53E004724BA /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8251612A15B9A53E004724BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8251612B15B9A53E004724BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		8251612D15B9A53E004724BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlightViewerDataCreation/FlightViewerDataCreation-Prefix.pch";
+				INFOPLIST_FILE = "FlightViewerDataCreation/FlightViewerDataCreation-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8251612E15B9A53E004724BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlightViewerDataCreation/FlightViewerDataCreation-Prefix.pch";
+				INFOPLIST_FILE = "FlightViewerDataCreation/FlightViewerDataCreation-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8251610515B9A53D004724BA /* Build configuration list for PBXProject "FlightViewerDataCreation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8251612A15B9A53E004724BA /* Debug */,
+				8251612B15B9A53E004724BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8251612C15B9A53E004724BA /* Build configuration list for PBXNativeTarget "FlightViewerDataCreation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8251612D15B9A53E004724BA /* Debug */,
+				8251612E15B9A53E004724BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8251610215B9A53D004724BA /* Project object */;
+}

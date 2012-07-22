@@ -1,8 +1,8 @@
 //
 //  FlightInfo.m
-//  FlightViewer
+//  FlightViewerDataCreation
 //
-//  Created by Christabelle Bosson on 07/19/12.
+//  Created by Ludovic Delaveau on 7/22/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -14,10 +14,11 @@
 
 @dynamic acFlightId;
 @dynamic acType;
-@dynamic airportDeparture;
 @dynamic airportArrival;
-@dynamic departureTime;
+@dynamic airportDeparture;
 @dynamic arrivalTime;
+@dynamic departureTime;
+@dynamic fid;
 @dynamic flightPlan;
 @dynamic flightInfo;
 

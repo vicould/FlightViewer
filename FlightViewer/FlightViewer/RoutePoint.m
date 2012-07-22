@@ -1,8 +1,8 @@
 //
 //  RoutePoint.m
-//  FlightViewer
+//  FlightViewerDataCreation
 //
-//  Created by Christabelle Bosson on 07/19/12.
+//  Created by Ludovic Delaveau on 7/22/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,9 +13,10 @@
 @implementation RoutePoint
 
 @dynamic altitude;
-@dynamic speed;
-@dynamic longitude;
+@dynamic fid;
 @dynamic latitude;
+@dynamic longitude;
+@dynamic speed;
 @dynamic time;
 @dynamic whoFlown;
 
