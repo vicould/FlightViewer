@@ -12,7 +12,7 @@
 #import "FlightInfo.h"
 
 
-@interface FlightViewerSubViewMapController : UIViewController <MKMapViewDelegate>
+@interface FVMapViewController : UIViewController <MKMapViewDelegate>
 
 @property (nonatomic, strong) NSArray *flightPoints;
 @property (nonatomic, strong) FlightInfo *flightInfo;

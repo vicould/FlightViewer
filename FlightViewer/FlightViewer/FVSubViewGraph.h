@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FlightViewerSubViewGraph : UIView
+@interface FVSubViewGraph : UIView
 
 @property (nonatomic, strong) NSArray *altitude;
 @property (nonatomic, strong) NSArray *speed;

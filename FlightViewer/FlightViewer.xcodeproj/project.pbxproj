@@ -16,10 +16,10 @@
 		51987E9115A8C30C00A6484A /* FlightViewerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 51987E9015A8C30C00A6484A /* FlightViewerAppDelegate.m */; };
 		51987E9415A8C30C00A6484A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51987E9215A8C30C00A6484A /* MainStoryboard_iPhone.storyboard */; };
 		51987E9715A8C30C00A6484A /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51987E9515A8C30C00A6484A /* MainStoryboard_iPad.storyboard */; };
-		51987E9A15A8C30C00A6484A /* FlightViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51987E9915A8C30C00A6484A /* FlightViewerViewController.m */; };
-		51987EAD15A923EF00A6484A /* FlightViewerSubViewMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51987EAC15A923EF00A6484A /* FlightViewerSubViewMapController.m */; };
-		51987EB015A9241000A6484A /* FlightViewerSubViewGraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51987EAF15A9241000A6484A /* FlightViewerSubViewGraphController.m */; };
-		51987EB615A9277D00A6484A /* FlightViewerSubViewGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 51987EB515A9277D00A6484A /* FlightViewerSubViewGraph.m */; };
+		51987E9A15A8C30C00A6484A /* FVFlightPlanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51987E9915A8C30C00A6484A /* FVFlightPlanDetailViewController.m */; };
+		51987EAD15A923EF00A6484A /* FVMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51987EAC15A923EF00A6484A /* FVMapViewController.m */; };
+		51987EB015A9241000A6484A /* FVGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51987EAF15A9241000A6484A /* FVGraphViewController.m */; };
+		51987EB615A9277D00A6484A /* FVSubViewGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 51987EB515A9277D00A6484A /* FVSubViewGraph.m */; };
 		51987EBD15AA2C0B00A6484A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51987EBC15AA2C0B00A6484A /* MapKit.framework */; };
 		51987EBF15AA365E00A6484A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51987EBE15AA365E00A6484A /* CoreLocation.framework */; };
 		51CF84C315B899BA00A282A2 /* FlightPlanModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51CF84C115B899BA00A282A2 /* FlightPlanModel.xcdatamodeld */; };
@@ -27,7 +27,7 @@
 		51CF84E115B8A65800A282A2 /* RoutePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CF84E015B8A65800A282A2 /* RoutePoint.m */; };
 		51CF84E415B8A68D00A282A2 /* FlightInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CF84E315B8A68D00A282A2 /* FlightInfo.m */; };
 		51CF84E615B8B54F00A282A2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51CF84E515B8B54E00A282A2 /* CoreData.framework */; };
-		51E4955C15B061F40047C950 /* FlightViewerTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E4955B15B061F40047C950 /* FlightViewerTopViewController.m */; };
+		51E4955C15B061F40047C950 /* FVFlightPlanSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E4955B15B061F40047C950 /* FVFlightPlanSelectionViewController.m */; };
 		51E4956315B075F60047C950 /* delta.png in Resources */ = {isa = PBXBuildFile; fileRef = 51E4956215B075F60047C950 /* delta.png */; };
 		51EFCE2015BDA913003F7951 /* FlightViewer.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 51EFCE1F15BDA913003F7951 /* FlightViewer.sqlite */; };
 /* End PBXBuildFile section */
@@ -46,14 +46,14 @@
 		51987E9015A8C30C00A6484A /* FlightViewerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlightViewerAppDelegate.m; sourceTree = "<group>"; };
 		51987E9315A8C30C00A6484A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		51987E9615A8C30C00A6484A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		51987E9815A8C30C00A6484A /* FlightViewerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlightViewerViewController.h; sourceTree = "<group>"; };
-		51987E9915A8C30C00A6484A /* FlightViewerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlightViewerViewController.m; sourceTree = "<group>"; };
-		51987EAB15A923EF00A6484A /* FlightViewerSubViewMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightViewerSubViewMapController.h; sourceTree = "<group>"; };
-		51987EAC15A923EF00A6484A /* FlightViewerSubViewMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightViewerSubViewMapController.m; sourceTree = "<group>"; };
-		51987EAE15A9241000A6484A /* FlightViewerSubViewGraphController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightViewerSubViewGraphController.h; sourceTree = "<group>"; };
-		51987EAF15A9241000A6484A /* FlightViewerSubViewGraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightViewerSubViewGraphController.m; sourceTree = "<group>"; };
-		51987EB415A9277D00A6484A /* FlightViewerSubViewGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightViewerSubViewGraph.h; sourceTree = "<group>"; };
-		51987EB515A9277D00A6484A /* FlightViewerSubViewGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightViewerSubViewGraph.m; sourceTree = "<group>"; };
+		51987E9815A8C30C00A6484A /* FVFlightPlanDetailViewController.h */ = {isa = PBXFileReference; path = FVFlightPlanDetailViewController.h; sourceTree = "<group>"; };
+		51987E9915A8C30C00A6484A /* FVFlightPlanDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FVFlightPlanDetailViewController.m; sourceTree = "<group>"; };
+		51987EAB15A923EF00A6484A /* FVMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FVMapViewController.h; sourceTree = "<group>"; };
+		51987EAC15A923EF00A6484A /* FVMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FVMapViewController.m; sourceTree = "<group>"; };
+		51987EAE15A9241000A6484A /* FVGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FVGraphViewController.h; sourceTree = "<group>"; };
+		51987EAF15A9241000A6484A /* FVGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FVGraphViewController.m; sourceTree = "<group>"; };
+		51987EB415A9277D00A6484A /* FVSubViewGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FVSubViewGraph.h; sourceTree = "<group>"; };
+		51987EB515A9277D00A6484A /* FVSubViewGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FVSubViewGraph.m; sourceTree = "<group>"; };
 		51987EBC15AA2C0B00A6484A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		51987EBE15AA365E00A6484A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		51CF84C215B899BA00A282A2 /* FlightPlanModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlightPlanModel.xcdatamodel; sourceTree = "<group>"; };
@@ -64,8 +64,8 @@
 		51CF84E215B8A68D00A282A2 /* FlightInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightInfo.h; path = FlightViewer/FlightInfo.h; sourceTree = "<group>"; };
 		51CF84E315B8A68D00A282A2 /* FlightInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightInfo.m; path = FlightViewer/FlightInfo.m; sourceTree = "<group>"; };
 		51CF84E515B8B54E00A282A2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		51E4955A15B061F40047C950 /* FlightViewerTopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightViewerTopViewController.h; sourceTree = "<group>"; };
-		51E4955B15B061F40047C950 /* FlightViewerTopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightViewerTopViewController.m; sourceTree = "<group>"; };
+		51E4955A15B061F40047C950 /* FVFlightPlanSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FVFlightPlanSelectionViewController.h; sourceTree = "<group>"; };
+		51E4955B15B061F40047C950 /* FVFlightPlanSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FVFlightPlanSelectionViewController.m; sourceTree = "<group>"; };
 		51E4956215B075F60047C950 /* delta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delta.png; sourceTree = "<group>"; };
 		51EFCE1F15BDA913003F7951 /* FlightViewer.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FlightViewer.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,10 +125,10 @@
 				51987E9015A8C30C00A6484A /* FlightViewerAppDelegate.m */,
 				51987E9215A8C30C00A6484A /* MainStoryboard_iPhone.storyboard */,
 				51987E9515A8C30C00A6484A /* MainStoryboard_iPad.storyboard */,
-				51987E9815A8C30C00A6484A /* FlightViewerViewController.h */,
-				51987E9915A8C30C00A6484A /* FlightViewerViewController.m */,
-				51E4955A15B061F40047C950 /* FlightViewerTopViewController.h */,
-				51E4955B15B061F40047C950 /* FlightViewerTopViewController.m */,
+				51987E9815A8C30C00A6484A /* FVFlightPlanDetailViewController.h */,
+				51987E9915A8C30C00A6484A /* FVFlightPlanDetailViewController.m */,
+				51E4955A15B061F40047C950 /* FVFlightPlanSelectionViewController.h */,
+				51E4955B15B061F40047C950 /* FVFlightPlanSelectionViewController.m */,
 				51987EBA15AA2B8C00A6484A /* Flight Path */,
 				51987EBB15AA2BAA00A6484A /* Graph */,
 				51987E8715A8C30C00A6484A /* Supporting Files */,
@@ -155,8 +155,8 @@
 		51987EBA15AA2B8C00A6484A /* Flight Path */ = {
 			isa = PBXGroup;
 			children = (
-				51987EAB15A923EF00A6484A /* FlightViewerSubViewMapController.h */,
-				51987EAC15A923EF00A6484A /* FlightViewerSubViewMapController.m */,
+				51987EAB15A923EF00A6484A /* FVMapViewController.h */,
+				51987EAC15A923EF00A6484A /* FVMapViewController.m */,
 			);
 			name = "Flight Path";
 			sourceTree = "<group>";
@@ -164,10 +164,10 @@
 		51987EBB15AA2BAA00A6484A /* Graph */ = {
 			isa = PBXGroup;
 			children = (
-				51987EAE15A9241000A6484A /* FlightViewerSubViewGraphController.h */,
-				51987EAF15A9241000A6484A /* FlightViewerSubViewGraphController.m */,
-				51987EB415A9277D00A6484A /* FlightViewerSubViewGraph.h */,
-				51987EB515A9277D00A6484A /* FlightViewerSubViewGraph.m */,
+				51987EAE15A9241000A6484A /* FVGraphViewController.h */,
+				51987EAF15A9241000A6484A /* FVGraphViewController.m */,
+				51987EB415A9277D00A6484A /* FVSubViewGraph.h */,
+				51987EB515A9277D00A6484A /* FVSubViewGraph.m */,
 			);
 			name = Graph;
 			sourceTree = "<group>";
@@ -253,11 +253,11 @@
 			files = (
 				51987E8D15A8C30C00A6484A /* main.m in Sources */,
 				51987E9115A8C30C00A6484A /* FlightViewerAppDelegate.m in Sources */,
-				51987E9A15A8C30C00A6484A /* FlightViewerViewController.m in Sources */,
-				51987EAD15A923EF00A6484A /* FlightViewerSubViewMapController.m in Sources */,
-				51987EB015A9241000A6484A /* FlightViewerSubViewGraphController.m in Sources */,
-				51987EB615A9277D00A6484A /* FlightViewerSubViewGraph.m in Sources */,
-				51E4955C15B061F40047C950 /* FlightViewerTopViewController.m in Sources */,
+				51987E9A15A8C30C00A6484A /* FVFlightPlanDetailViewController.m in Sources */,
+				51987EAD15A923EF00A6484A /* FVMapViewController.m in Sources */,
+				51987EB015A9241000A6484A /* FVGraphViewController.m in Sources */,
+				51987EB615A9277D00A6484A /* FVSubViewGraph.m in Sources */,
+				51E4955C15B061F40047C950 /* FVFlightPlanSelectionViewController.m in Sources */,
 				51CF84C315B899BA00A282A2 /* FlightPlanModel.xcdatamodeld in Sources */,
 				51CF84D415B89C8B00A282A2 /* CoreDataTableViewController.m in Sources */,
 				51CF84E115B8A65800A282A2 /* RoutePoint.m in Sources */,

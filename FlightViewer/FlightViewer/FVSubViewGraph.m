@@ -6,16 +6,16 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "FlightViewerSubViewGraph.h"
+#import "FVSubViewGraph.h"
 
-@interface FlightViewerSubViewGraph ()
+@interface FVSubViewGraph ()
 
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @end
 
 
-@implementation FlightViewerSubViewGraph
+@implementation FVSubViewGraph
 
 @synthesize dateFormatter = _dateFormatter;
 

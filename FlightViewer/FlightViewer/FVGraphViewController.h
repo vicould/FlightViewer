@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FlightInfo.h"
 
-@interface FlightViewerSubViewGraphController : UIViewController
+@interface FVGraphViewController : UIViewController
 
 @property (nonatomic, strong) NSArray *flightPoints;
 @property (nonatomic, strong) FlightInfo *flightInfo;

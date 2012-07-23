@@ -23,11 +23,11 @@
             </objects>
             <point key="canvasLocation" x="-789" y="95"/>
         </scene>
-        <!--Flight Viewer Top View Controller-->
+        <!--Flight Plan Selection View Controller-->
         <scene sceneID="nem-cA-e8S">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h5l-oc-GO1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="lf1-Lo-bdU" customClass="FlightViewerTopViewController" sceneMemberID="viewController">
+                <tableViewController id="lf1-Lo-bdU" customClass="FVFlightPlanSelectionViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gtn-zD-LBh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,11 +65,11 @@
             </objects>
             <point key="canvasLocation" x="-271" y="95"/>
         </scene>
-        <!--Flight Viewer Sub View Map Controller - Flight path-->
+        <!--Map View Controller - Flight path-->
         <scene sceneID="P3Y-yQ-8Us">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypD-fc-e61" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="Flight path" wantsFullScreenLayout="YES" id="uh8-yj-mV1" customClass="FlightViewerSubViewMapController" sceneMemberID="viewController">
+                <viewController title="Flight path" wantsFullScreenLayout="YES" id="uh8-yj-mV1" customClass="FVMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iaR-Iw-Lpq">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -104,12 +104,12 @@
             </objects>
             <point key="canvasLocation" x="1270" y="205"/>
         </scene>
-        <!--Flight Viewer Sub View Graph Controller - H and V profiles-->
+        <!--Graph View Controller - H and V profiles-->
         <scene sceneID="uQ0-4p-ebS">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6R-bt-eLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="H and V profiles" wantsFullScreenLayout="YES" id="zey-pL-F1Z" customClass="FlightViewerSubViewGraphController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Iu7-3O-H7Y" customClass="FlightViewerSubViewGraph">
+                <viewController title="H and V profiles" wantsFullScreenLayout="YES" id="zey-pL-F1Z" customClass="FVGraphViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Iu7-3O-H7Y" customClass="FVSubViewGraph">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -135,11 +135,11 @@
             </objects>
             <point key="canvasLocation" x="750" y="674"/>
         </scene>
-        <!--Flight Viewer View Controller-->
+        <!--Flight Plan Detail View Controller-->
         <scene sceneID="cqn-LC-vnx">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1Y-z8-Enq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="kco-8B-02f" customClass="FlightViewerViewController" sceneMemberID="viewController">
+                <tableViewController id="kco-8B-02f" customClass="FVFlightPlanDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="EjL-MU-26o">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -222,33 +222,6 @@
             <point key="canvasLocation" x="227" y="83"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="FlightViewerSubViewGraph" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerSubViewGraph.h"/>
-        </class>
-        <class className="FlightViewerSubViewGraphController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerSubViewGraphController.h"/>
-            <relationships>
-                <relationship kind="action" name="toggleNavigationBar:"/>
-                <relationship kind="outlet" name="graphView" candidateClass="FlightViewerSubViewGraph"/>
-            </relationships>
-        </class>
-        <class className="FlightViewerSubViewMapController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerSubViewMapController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="FlightViewerTopViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerTopViewController.h"/>
-        </class>
-        <class className="FlightViewerViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

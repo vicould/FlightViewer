@@ -6,19 +6,19 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "FlightViewerSubViewGraphController.h"
-#import "FlightViewerSubViewGraph.h"
+#import "FVGraphViewController.h"
+#import "FVSubViewGraph.h"
 #import "RoutePoint.h"
 
-@interface FlightViewerSubViewGraphController ()
+@interface FVGraphViewController ()
 
 // an outlet to keep track of the main view of this controller, which is the graph.
-@property (nonatomic, strong) IBOutlet FlightViewerSubViewGraph *graphView;
+@property (nonatomic, strong) IBOutlet FVSubViewGraph *graphView;
 - (IBAction)toggleNavigationBar:(id)sender;
 
 @end
 
-@implementation FlightViewerSubViewGraphController
+@implementation FVGraphViewController
 
 @synthesize flightPoints = _flightPoints;
 @synthesize flightInfo = _flightInfo;

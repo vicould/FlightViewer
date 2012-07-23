@@ -12,7 +12,7 @@
 /*
  * The root controller of the application. 
  */
-@interface FlightViewerViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface FVFlightPlanDetailViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) FlightInfo *flightInfo;
 @property (nonatomic, strong) UIManagedDocument *flightDatabase;

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
 
-@interface FlightViewerTopViewController : CoreDataTableViewController
+@interface FVFlightPlanSelectionViewController : CoreDataTableViewController
 
 @property (nonatomic, strong) UIManagedDocument *flightPlanDatabase;
 

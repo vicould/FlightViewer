@@ -8,10 +8,10 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-#import "FlightViewerSubViewMapController.h"
+#import "FVMapViewController.h"
 #import "RoutePoint.h"
 
-@interface FlightViewerSubViewMapController ()
+@interface FVMapViewController ()
 
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) MKPolyline *fpRouteLine;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation FlightViewerSubViewMapController
+@implementation FVMapViewController
 
 @synthesize flightPoints = _flightPoints;
 @synthesize flightInfo = _flightInfo;

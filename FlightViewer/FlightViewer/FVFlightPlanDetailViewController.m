@@ -6,18 +6,18 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "FlightViewerViewController.h"
-#import "FlightViewerSubViewGraphController.h"
-#import "FlightViewerSubViewMapController.h"
+#import "FVFlightPlanDetailViewController.h"
+#import "FVGraphViewController.h"
+#import "FVMapViewController.h"
 
 
-@interface FlightViewerViewController ()
+@interface FVFlightPlanDetailViewController ()
 
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @end
 
-@implementation FlightViewerViewController
+@implementation FVFlightPlanDetailViewController
 
 @synthesize flightInfo = _flighInfo;
 @synthesize flightDatabase = _flightDatabase;

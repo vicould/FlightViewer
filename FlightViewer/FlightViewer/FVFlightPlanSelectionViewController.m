@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "FlightViewerTopViewController.h"
-#import "FlightViewerViewController.h"
+#import "FVFlightPlanSelectionViewController.h"
+#import "FVFlightPlanDetailViewController.h"
 #import "FlightInfo.h"
 
-@interface FlightViewerTopViewController ()
+@interface FVFlightPlanSelectionViewController ()
 
 @end
 
-@implementation FlightViewerTopViewController
+@implementation FVFlightPlanSelectionViewController
 
 @synthesize flightPlanDatabase = _flightPlanDatabase;
 
