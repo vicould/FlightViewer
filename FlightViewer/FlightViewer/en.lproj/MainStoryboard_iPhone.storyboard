@@ -88,6 +88,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="D7h-8e-MWQ"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackTranslucent" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -119,6 +120,7 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="V and FL time history profiles" id="Dd1-kx-SsK"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackTranslucent" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
@@ -221,6 +223,9 @@
         </scene>
     </scenes>
     <classes>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
         <class className="FlightViewerSubViewGraph" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerSubViewGraph.h"/>
         </class>
@@ -237,7 +242,7 @@
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
             </relationships>
         </class>
-        <class className="FlightViewerTopViewController" superclassName="UITableViewController">
+        <class className="FlightViewerTopViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightViewerTopViewController.h"/>
         </class>
         <class className="FlightViewerViewController" superclassName="UITableViewController">
