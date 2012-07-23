@@ -21,7 +21,7 @@
 
 @implementation FVFlightPlanSelectionViewController
 
-@synthesize flightPlanDatabase = _flightPlanDatabase;
+@synthesize flightsDatabase = _flightPlanDatabase;
 @synthesize lastSearchTerm = _lastSearchTerm;
 @synthesize searchResults = _searchResults;
 
@@ -32,8 +32,12 @@
     return _searchResults;
 }
 
-- (void)setSearchResults:(NSArray *)searchResults {
-    _searchResults = searchResults;
+@synthesize currentAirline = _currentAirline;
+
+- (void)setCurrentAirline:(NSString *)currentAirline
+{
+    _currentAirline = currentAirline;
+    [self setupFetchedResultsController];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -70,6 +74,16 @@
     self.lastSearchTerm = self.searchDisplayController.searchBar.text;
 }
 
+-(void)setupFetchedResultsController
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"FlightInfo"];
+    request.predicate = [NSPredicate predicateWithFormat:@"airline = %@", self.currentAirline];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"acFlightId" ascending:YES]];
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.flightsDatabase.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
@@ -77,64 +91,6 @@
         return YES;
     }
     return NO;
-}
-
-#pragma mark - Data fetching
-
--(void)setupFetchedResultsController
-{
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"FlightInfo"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"acFlightId" ascending:YES]];
-    
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.flightPlanDatabase.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    
-}
-
--(void)useDocument
-{  
-    NSURL *databaseURL = self.flightPlanDatabase.fileURL;
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:databaseURL.path]) {
-        // if document does not exist
-        NSURL *resourceURL = [[NSBundle mainBundle] URLForResource:@"FlightViewer" withExtension:@"sqlite"];
-        NSURL *destURL = [databaseURL URLByAppendingPathComponent:@"StoreContent"];
-        [[NSFileManager defaultManager] createDirectoryAtURL:destURL withIntermediateDirectories:YES attributes:nil error:NULL];
-        NSURL *finalURL = [destURL URLByAppendingPathComponent:@"persistentStore"];
-        
-        NSError *error = nil;
-        if ([[NSFileManager defaultManager] copyItemAtURL:resourceURL toURL:finalURL error:&error]) {
-            NSLog(@"Started data copy to %@", self.flightPlanDatabase.fileURL.path);
-            [self setupFetchedResultsController];
-        } else {
-            NSLog(@"Error while copying data: %@", error);
-        }
-    } else if (self.flightPlanDatabase.documentState == UIDocumentStateClosed) {
-        // document not opened
-        [self.flightPlanDatabase openWithCompletionHandler:^(BOOL success) { 
-            [self setupFetchedResultsController];
-        }];
-    } else if (self.flightPlanDatabase.documentState == UIDocumentStateNormal) {
-        [self setupFetchedResultsController];
-    }
-}
-
-- (void)setFlightPlanDatabase:(UIManagedDocument *)flightPlanDatabase {
-    if (!_flightPlanDatabase) {
-        _flightPlanDatabase = flightPlanDatabase;
-        [self useDocument];
-    }
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    if (!self.flightPlanDatabase) {
-        NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        url = [url URLByAppendingPathComponent:@"FlighViewerDB"];
-        UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
-        document.persistentStoreOptions = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-        self.flightPlanDatabase = document;
-    }
 }
 
 #pragma mark - Table view data source
@@ -224,7 +180,7 @@
 {
      NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     [segue.destinationViewController setFlightInfo:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-    [segue.destinationViewController setFlightDatabase:self.flightPlanDatabase];
+    [segue.destinationViewController setFlightsDatabase:self.flightsDatabase];
     
 }
 
@@ -235,7 +191,7 @@
     userSearchingFlightPlansRequest.predicate = [NSPredicate predicateWithFormat:@"acFlightId BEGINSWITH %@", query];
     userSearchingFlightPlansRequest.sortDescriptors = [NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"acFlightId" ascending:YES], nil];
     
-    NSFetchedResultsController *flightPlansResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:userSearchingFlightPlansRequest managedObjectContext:self.flightPlanDatabase.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    NSFetchedResultsController *flightPlansResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:userSearchingFlightPlansRequest managedObjectContext:self.flightsDatabase.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     
     NSError *error = nil;
     BOOL success = [flightPlansResultsController performFetch:&error];

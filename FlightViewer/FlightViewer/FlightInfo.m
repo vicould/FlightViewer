@@ -1,12 +1,13 @@
 //
 //  FlightInfo.m
-//  FlightViewerDataCreation
+//  FlightViewer
 //
 //  Created by Christabelle Bosson on 07/23/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "FlightInfo.h"
+#import "Airline.h"
 #import "RoutePoint.h"
 
 
@@ -22,5 +23,6 @@
 @dynamic flightPlan;
 @dynamic airline;
 @dynamic flightInfo;
+@dynamic whoBelongs;
 
 @end

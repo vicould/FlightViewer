@@ -20,7 +20,7 @@
 @implementation FVFlightPlanDetailViewController
 
 @synthesize flightInfo = _flighInfo;
-@synthesize flightDatabase = _flightDatabase;
+@synthesize flightsDatabase = _flightDatabase;
 @synthesize dateFormatter = _dateFormatter;
 
 - (NSDateFormatter *)dateFormatter {
@@ -149,7 +149,7 @@
     pointsRequest.predicate = [NSPredicate predicateWithFormat:@"whoFlown.fid = %lld", [self.flightInfo.fid longLongValue]];
     pointsRequest.sortDescriptors = [NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES], nil];
     
-    NSFetchedResultsController *flightPointsResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:pointsRequest managedObjectContext:self.flightDatabase.managedObjectContext sectionNameKeyPath:nil cacheName:[NSString stringWithFormat:@"Route %@", self.flightInfo.acFlightId]];
+    NSFetchedResultsController *flightPointsResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:pointsRequest managedObjectContext:self.flightsDatabase.managedObjectContext sectionNameKeyPath:nil cacheName:[NSString stringWithFormat:@"Route %@", self.flightInfo.acFlightId]];
     
     NSError *error = nil;
     BOOL success = [flightPointsResultsController performFetch:&error];

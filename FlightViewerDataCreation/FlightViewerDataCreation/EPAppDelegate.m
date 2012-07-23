@@ -9,6 +9,7 @@
 #import "EPAppDelegate.h"
 #import "RoutePoint.h"
 #import "FlightInfo.h"
+#import "Airline.h"
 
 @implementation EPAppDelegate
 
@@ -205,6 +206,8 @@
     
     NSMutableDictionary *flightInfoSaved = [[NSMutableDictionary alloc] init];
     
+    NSMutableSet *airlineSet = [[NSMutableSet alloc] init];
+    
     for (NSString *flightId in routePoints) {
         NSArray *routePointsList = [routePoints objectForKey:flightId];
         
@@ -230,7 +233,9 @@
                 flightInfo.airportArrival = [flightInfoItems objectForKey:@"airportArrival"];
                 flightInfo.arrivalTime = [flightInfoItems objectForKey:@"arrivalTime"];
                 flightInfo.flightPlan = [flightInfoItems objectForKey:@"flightPlan"];
-                flightInfo.airline = [self detectAirline:flightInfo.acFlightId];
+                NSString *airlineName = [self detectAirline:flightInfo.acFlightId];
+                flightInfo.airline = airlineName;
+                [airlineSet addObject:airlineName];
                 
                 [flightInfoSaved setObject:flightInfo forKey:flightId];
             }
@@ -240,10 +245,19 @@
     }
     NSLog(@"Finished loading the flight points");
     
+    //forin loop airline*
+    for (NSString *airlineName in airlineSet) {
+        Airline *airline = [NSEntityDescription insertNewObjectForEntityForName:@"Airline" inManagedObjectContext:context];
+        airline.name = airlineName;
+    }
+   
+    NSLog(@"Finished loading the airlines");
+    
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Error saving: %@", error);
     }
+    NSLog(@"Finished saving the flights");
     
     [pool drain];
 }

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11E53" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Airline" representedClassName="Airline" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="airline" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FlightInfo" inverseName="whoBelongs" inverseEntity="FlightInfo" syncable="YES"/>
+    </entity>
     <entity name="FlightInfo" representedClassName="FlightInfo" syncable="YES">
         <attribute name="acFlightId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="acType" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,6 +15,7 @@
         <attribute name="fid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="flightPlan" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="flightInfo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoutePoint" inverseName="whoFlown" inverseEntity="RoutePoint" syncable="YES"/>
+        <relationship name="whoBelongs" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Airline" inverseName="airline" inverseEntity="Airline" syncable="YES"/>
     </entity>
     <entity name="RoutePoint" representedClassName="RoutePoint" syncable="YES">
         <attribute name="altitude" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -22,7 +27,8 @@
         <relationship name="whoFlown" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FlightInfo" inverseName="flightInfo" inverseEntity="FlightInfo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FlightInfo" positionX="160" positionY="192" width="128" height="195"/>
+        <element name="FlightInfo" positionX="160" positionY="192" width="128" height="180"/>
         <element name="RoutePoint" positionX="412" positionY="81" width="128" height="150"/>
+        <element name="Airline" positionX="-1109" positionY="138" width="128" height="75"/>
     </elements>
 </model>

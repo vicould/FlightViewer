@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		51EFCE1D15BDA804003F7951 /* FlightInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EFCE1C15BDA804003F7951 /* FlightInfo.m */; };
+		51EFCE3515BDEF1A003F7951 /* Airline.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EFCE3415BDEF1A003F7951 /* Airline.m */; };
 		8251611015B9A53E004724BA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8251610F15B9A53E004724BA /* Cocoa.framework */; };
 		8251611A15B9A53E004724BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8251611815B9A53E004724BA /* InfoPlist.strings */; };
 		8251611C15B9A53E004724BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8251611B15B9A53E004724BA /* main.m */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		51EFCE1B15BDA804003F7951 /* FlightInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightInfo.h; path = ../../FlightViewer/FlightViewer/FlightInfo.h; sourceTree = "<group>"; };
 		51EFCE1C15BDA804003F7951 /* FlightInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightInfo.m; path = ../../FlightViewer/FlightViewer/FlightInfo.m; sourceTree = "<group>"; };
+		51EFCE3315BDEF1A003F7951 /* Airline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Airline.h; path = ../../FlightViewer/FlightViewer/Airline.h; sourceTree = "<group>"; };
+		51EFCE3415BDEF1A003F7951 /* Airline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Airline.m; path = ../../FlightViewer/FlightViewer/Airline.m; sourceTree = "<group>"; };
 		8251610B15B9A53E004724BA /* FlightViewerDataCreation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightViewerDataCreation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8251610F15B9A53E004724BA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8251611215B9A53E004724BA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -94,6 +97,8 @@
 		8251611515B9A53E004724BA /* FlightViewerDataCreation */ = {
 			isa = PBXGroup;
 			children = (
+				51EFCE3315BDEF1A003F7951 /* Airline.h */,
+				51EFCE3415BDEF1A003F7951 /* Airline.m */,
 				8251612F15B9A566004724BA /* RoutePoint.h */,
 				8251613015B9A566004724BA /* RoutePoint.m */,
 				51EFCE1B15BDA804003F7951 /* FlightInfo.h */,
@@ -192,6 +197,7 @@
 				8251613415B9A566004724BA /* RoutePoint.m in Sources */,
 				8251613515B9A566004724BA /* FlightPlanModel.xcdatamodel in Sources */,
 				51EFCE1D15BDA804003F7951 /* FlightInfo.m in Sources */,
+				51EFCE3515BDEF1A003F7951 /* Airline.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

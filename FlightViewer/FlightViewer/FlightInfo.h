@@ -1,6 +1,6 @@
 //
 //  FlightInfo.h
-//  FlightViewerDataCreation
+//  FlightViewer
 //
 //  Created by Christabelle Bosson on 07/23/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class RoutePoint;
+@class Airline, RoutePoint;
 
 @interface FlightInfo : NSManagedObject
 
@@ -23,6 +23,7 @@
 @property (nonatomic, retain) NSString * flightPlan;
 @property (nonatomic, retain) NSString * airline;
 @property (nonatomic, retain) NSSet *flightInfo;
+@property (nonatomic, retain) Airline *whoBelongs;
 @end
 
 @interface FlightInfo (CoreDataGeneratedAccessors)
