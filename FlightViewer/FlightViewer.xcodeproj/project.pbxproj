@@ -31,7 +31,7 @@
 		51CF84E615B8B54F00A282A2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51CF84E515B8B54E00A282A2 /* CoreData.framework */; };
 		51E4955C15B061F40047C950 /* FlightViewerTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E4955B15B061F40047C950 /* FlightViewerTopViewController.m */; };
 		51E4956315B075F60047C950 /* delta.png in Resources */ = {isa = PBXBuildFile; fileRef = 51E4956215B075F60047C950 /* delta.png */; };
-		82B6C50415BC9C4100F6028A /* FlightViewer.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 82B6C50315BC9C4100F6028A /* FlightViewer.sqlite */; };
+		51EFCE2015BDA913003F7951 /* FlightViewer.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 51EFCE1F15BDA913003F7951 /* FlightViewer.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,7 +73,7 @@
 		51E4955A15B061F40047C950 /* FlightViewerTopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightViewerTopViewController.h; sourceTree = "<group>"; };
 		51E4955B15B061F40047C950 /* FlightViewerTopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightViewerTopViewController.m; sourceTree = "<group>"; };
 		51E4956215B075F60047C950 /* delta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delta.png; sourceTree = "<group>"; };
-		82B6C50315BC9C4100F6028A /* FlightViewer.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FlightViewer.sqlite; sourceTree = "<group>"; };
+		51EFCE1F15BDA913003F7951 /* FlightViewer.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FlightViewer.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +163,7 @@
 		51987E8715A8C30C00A6484A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				82B6C50315BC9C4100F6028A /* FlightViewer.sqlite */,
+				51EFCE1F15BDA913003F7951 /* FlightViewer.sqlite */,
 				51E4956215B075F60047C950 /* delta.png */,
 				51550B6515AD13FA00DA1FFF /* Centers.plist */,
 				51987E8815A8C30C00A6484A /* FlightViewer-Info.plist */,
@@ -250,7 +250,7 @@
 				51987E9715A8C30C00A6484A /* MainStoryboard_iPad.storyboard in Resources */,
 				51550B6615AD13FA00DA1FFF /* Centers.plist in Resources */,
 				51E4956315B075F60047C950 /* delta.png in Resources */,
-				82B6C50415BC9C4100F6028A /* FlightViewer.sqlite in Resources */,
+				51EFCE2015BDA913003F7951 /* FlightViewer.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

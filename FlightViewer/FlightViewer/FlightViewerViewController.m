@@ -39,7 +39,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 3;
+        return 4;
     }
     else if (section == 1) {
         return 2;
@@ -75,8 +75,11 @@
         if (indexPath.row == 0) {
             cell.textLabel.text = @"Flight";
             cell.detailTextLabel.text = self.flightInfo.acFlightId;
-        } 
-        else if (indexPath.row == 1) {
+        } else if (indexPath.row == 1) {
+            cell.textLabel.text = @"Airline";
+            cell.detailTextLabel.text = self.flightInfo.airline;
+        }
+        else if (indexPath.row == 2) {
             cell.textLabel.text = @"Type";
             cell.detailTextLabel.text = self.flightInfo.acType;
         } 
@@ -112,7 +115,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0 && indexPath.row == 2) {
+    if (indexPath.section == 0 && indexPath.row == 3) {
         if ([self.flightInfo.flightPlan length] <= 16) {
             return tableView.rowHeight;
         } else {
