@@ -8,11 +8,28 @@
 
 #import "FlightViewerSubViewGraph.h"
 
+@interface FlightViewerSubViewGraph ()
+
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+
+@end
+
+
 @implementation FlightViewerSubViewGraph
+
+@synthesize dateFormatter = _dateFormatter;
 
 @synthesize altitude = _altitude;
 @synthesize speed = _speed;
 @synthesize time = _time;
+
+- (NSDateFormatter *)dateFormatter {
+    if (!_dateFormatter) {
+        _dateFormatter = [[NSDateFormatter alloc] init];
+        _dateFormatter.dateFormat = @"HH:mm";
+    }
+    return _dateFormatter;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -242,7 +259,54 @@
  
     CGContextStrokePath(context);
 
+    // scale on the x axis
     
+    CGContextBeginPath(context);
+    CGContextSetLineWidth(context, 2.0);
+    [[UIColor blackColor] setStroke];
+    
+    NSDate *departureTime = [self.time objectAtIndex:0];
+    NSDate *arrivalTime = [self.time objectAtIndex:self.time.count - 1];
+    
+    UILabel *xLabelDeparture = [[UILabel alloc] initWithFrame:CGRectMake(30, 290, 30, 30)];
+    xLabelDeparture.text = [self.dateFormatter stringFromDate:departureTime];
+    xLabelDeparture.font = [UIFont systemFontOfSize:9];
+    xLabelDeparture.textColor = [UIColor blackColor];
+    xLabelDeparture.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    [xLabelDeparture setTransform: CGAffineTransformMakeRotation(M_PI / 4)];
+    [self addSubview:xLabelDeparture];
+    CGContextMoveToPoint(context, 30, 285);
+    CGContextAddLineToPoint(context, 30, 295);
+    
+    UILabel *xLabelArrival = [[UILabel alloc] initWithFrame:CGRectMake(450, 290, 30, 30)];
+    xLabelArrival.text = [self.dateFormatter stringFromDate:arrivalTime];
+    xLabelArrival.font = [UIFont systemFontOfSize:9];
+    xLabelArrival.textColor = [UIColor blackColor];
+    xLabelArrival.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    [xLabelArrival setTransform: CGAffineTransformMakeRotation(M_PI / 4)];
+    [self addSubview:xLabelArrival];
+    CGContextMoveToPoint(context, 450, 285);
+    CGContextAddLineToPoint(context, 450, 295);
+    
+    double xPosition = 0;
+    
+    NSTimeInterval flightDuration = [arrivalTime timeIntervalSinceDate:departureTime];
+    NSTimeInterval flightTimeInterval = flightDuration/5;
+    for (int i = 1; i < 5; i++) {
+        xPosition = 35 + i * 83;
+        UILabel *xLabelTime = [[UILabel alloc] initWithFrame:CGRectMake(xPosition, 290, 30, 30)];
+        NSDate *inFLightTime = [departureTime dateByAddingTimeInterval:(flightTimeInterval * i)];
+        xLabelTime.text = [self.dateFormatter stringFromDate:inFLightTime];
+        xLabelTime.font = [UIFont systemFontOfSize:9];
+        xLabelTime.textColor = [UIColor blackColor];
+        xLabelTime.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+        [xLabelTime setTransform: CGAffineTransformMakeRotation(M_PI / 4)];
+        [self addSubview:xLabelTime];
+        CGContextMoveToPoint(context, xPosition, 285);
+        CGContextAddLineToPoint(context, xPosition, 295);
+    }
+
+    CGContextStrokePath(context);
    
 }
 
