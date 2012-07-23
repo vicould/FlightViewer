@@ -12,11 +12,29 @@
 
 @interface FVFlightPlanSelectionViewController ()
 
+@property (nonatomic, strong) NSString *lastSearchTerm;
+@property (nonatomic, strong) NSArray *searchResults;
+
+- (void)searchForTerm:(NSString *)query;
+
 @end
 
 @implementation FVFlightPlanSelectionViewController
 
 @synthesize flightPlanDatabase = _flightPlanDatabase;
+@synthesize lastSearchTerm = _lastSearchTerm;
+@synthesize searchResults = _searchResults;
+
+- (NSArray *)searchResults {
+    if (!_searchResults) {
+        _searchResults = [NSArray array];
+    }
+    return _searchResults;
+}
+
+- (void)setSearchResults:(NSArray *)searchResults {
+    _searchResults = searchResults;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,6 +56,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem
     
+    if (self.lastSearchTerm) {
+        self.searchDisplayController.searchBar.text = self.lastSearchTerm;
+    }
 }
 
 - (void)viewDidUnload
@@ -45,6 +66,8 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
+    self.lastSearchTerm = self.searchDisplayController.searchBar.text;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -116,6 +139,52 @@
 
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    } else {
+        return [super numberOfSectionsInTableView:tableView];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.searchResults count];
+    } else {
+        return [super tableView:tableView numberOfRowsInSection:section];
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return @"";
+    } else {
+        return [super tableView:tableView titleForHeaderInSection:section];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    } else {
+        return [super tableView:tableView sectionForSectionIndexTitle:title atIndex:index];
+    }
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [NSArray array];
+    } else {
+        return [super sectionIndexTitlesForTableView:tableView];
+    }
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -126,8 +195,14 @@
     }
     // Configure the cell...
 //    cell.imageView.image = [UIImage imageNamed:@"delta"];
-    FlightInfo *flightInfo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    FlightInfo *flightInfo = nil;
+    if (tableView == self.tableView) {
+        flightInfo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    } else if (tableView == self.searchDisplayController.searchResultsTableView) {
+        flightInfo = [self.searchResults objectAtIndex:indexPath.row];
+    }
     cell.textLabel.text = flightInfo.acFlightId;
+
     
     return cell;
 }
@@ -151,6 +226,36 @@
     [segue.destinationViewController setFlightInfo:[self.fetchedResultsController objectAtIndexPath:indexPath]];
     [segue.destinationViewController setFlightDatabase:self.flightPlanDatabase];
     
+}
+
+#pragma mark - Search
+
+- (void)searchForTerm:(NSString *)query {
+    NSFetchRequest *userSearchingFlightPlansRequest = [NSFetchRequest fetchRequestWithEntityName:@"FlightInfo"];
+    userSearchingFlightPlansRequest.predicate = [NSPredicate predicateWithFormat:@"acFlightId BEGINSWITH %@", query];
+    userSearchingFlightPlansRequest.sortDescriptors = [NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"acFlightId" ascending:YES], nil];
+    
+    NSFetchedResultsController *flightPlansResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:userSearchingFlightPlansRequest managedObjectContext:self.flightPlanDatabase.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
+    NSError *error = nil;
+    BOOL success = [flightPlansResultsController performFetch:&error];
+    if (!success) {
+        NSLog(@"Fetched failed: %@", [error localizedDescription]);
+    }
+
+    self.searchResults = flightPlansResultsController.fetchedObjects;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self searchForTerm:searchString];
+    
+    return YES;
+}
+
+- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller {
+    self.lastSearchTerm = nil;
+    
+    [self.tableView reloadData];
 }
 
 @end

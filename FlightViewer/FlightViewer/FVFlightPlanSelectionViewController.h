@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
 
-@interface FVFlightPlanSelectionViewController : CoreDataTableViewController
+@interface FVFlightPlanSelectionViewController : CoreDataTableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, strong) UIManagedDocument *flightPlanDatabase;
 
