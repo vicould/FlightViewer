@@ -230,6 +230,7 @@
                 flightInfo.airportArrival = [flightInfoItems objectForKey:@"airportArrival"];
                 flightInfo.arrivalTime = [flightInfoItems objectForKey:@"arrivalTime"];
                 flightInfo.flightPlan = [flightInfoItems objectForKey:@"flightPlan"];
+                flightInfo.airline = [self detectAirline:flightInfo.acFlightId];
                 
                 [flightInfoSaved setObject:flightInfo forKey:flightId];
             }
@@ -245,6 +246,160 @@
     }
     
     [pool drain];
+}
+
+- (NSString *)detectAirline:(NSString *)acFlightId
+{
+    NSString *airlineCode = [acFlightId substringToIndex:3];
+    if ([airlineCode isEqualToString:@"AAL"]) {
+        return @"American Airlines";
+    } else if ([airlineCode isEqualToString:@"AAR"]) {
+        return @"Asiana Airlines";
+    } else if ([airlineCode isEqualToString:@"AAY"]) {
+        return @"Allegiant Air";
+    } else if ([airlineCode isEqualToString:@"ABX"]) {
+        return @"Airborne Express";
+    } else if ([airlineCode isEqualToString:@"AFR"]) {
+        return @"Air France";
+    } else if ([airlineCode isEqualToString:@"AJI"]) {
+        return @"Ameristar Jet Charter";
+    } else if ([airlineCode isEqualToString:@"ASA"]) {
+        return @"Alaska Airlines";
+    } else if ([airlineCode isEqualToString:@"ASH"]) {
+        return @"Mesa Airlines";
+    } else if ([airlineCode isEqualToString:@"ASO"]) {
+        return @"Aero Slovakia";
+    } else if ([airlineCode isEqualToString:@"ASQ"]) {
+        return @"Atlantic Southeast Airlines";
+    } else if ([airlineCode isEqualToString:@"ATN"]) {
+        return @"Air Transport International";
+    } else if ([airlineCode isEqualToString:@"AWE"]) {
+        return @"America West Airlines";
+    } else if ([airlineCode isEqualToString:@"AWI"]) {
+        return @"Air Wisconsin";
+    } else if ([airlineCode isEqualToString:@"BAW"]) {
+        return @"British Airways";
+    } else if ([airlineCode isEqualToString:@"BJS"]) {
+        return @"Business Jet Solutions";
+    } else if ([airlineCode isEqualToString:@"BOX"]) {
+        return @"Tiphook PLC";
+    } else if ([airlineCode isEqualToString:@"BTA"]) {
+        return @"ExpressJet";
+    } else if ([airlineCode isEqualToString:@"CAL"]) {
+        return @"China Airlines";
+    } else if ([airlineCode isEqualToString:@"CGP"]) {
+        return @"Cargo Plus Aviation";
+    } else if ([airlineCode isEqualToString:@"CHQ"]) {
+        return @"Chautauqua Airlines";
+    } else if ([airlineCode isEqualToString:@"CKK"]) {
+        return @"China Cargo Airlines";
+    } else if ([airlineCode isEqualToString:@"CKS"]) {
+        return @"Kalitta Air";
+    } else if ([airlineCode isEqualToString:@"CLX"]) {
+        return @"Cargolux";
+    } else if ([airlineCode isEqualToString:@"COA"]) {
+        return @"Continental Airlines";
+    } else if ([airlineCode isEqualToString:@"COM"]) {
+        return @"Comair";
+    } else if ([airlineCode isEqualToString:@"CPA"]) {
+        return @"Cathay Pacifc";
+    } else if ([airlineCode isEqualToString:@"CPZ"]) {
+        return @"Compass Airlines";
+    } else if ([airlineCode isEqualToString:@"DAL"]) {
+        return @"Delta Airlines";
+    } else if ([airlineCode isEqualToString:@"DCM"]) {
+        return @"FLTPLAN";
+    } else if ([airlineCode isEqualToString:@"DHL"]) {
+        return @"Astar Air Cargo";
+    } else if ([airlineCode isEqualToString:@"DOJ"]) {
+        return @"Justice Prisoner and Alien Transportation System";
+    } else if ([airlineCode isEqualToString:@"EGF"]) {
+        return @"American Eagle";
+    } else if ([airlineCode isEqualToString:@"EJA"]) {
+        return @"NetJets";
+    } else if ([airlineCode isEqualToString:@"EJM"]) {
+        return @"Executive Jet Management";
+    } else if ([airlineCode isEqualToString:@"ELJ"]) {
+        return @"Delta Air Elite";
+    } else if ([airlineCode isEqualToString:@"EVA"]) {
+        return @"EVA Air";
+    } else if ([airlineCode isEqualToString:@"FDX"]) {
+        return @"Federal Express";
+    } else if ([airlineCode isEqualToString:@"FFT"]) {
+        return @"Frontier Airlines";
+    } else if ([airlineCode isEqualToString:@"FLG"]) {
+        return @"Pinnacle Airlines";
+    } else if ([airlineCode isEqualToString:@"FRG"]) {
+        return @"Freight Runners Express";
+    } else if ([airlineCode isEqualToString:@"GEC"]) {
+        return @"Lufthansa Cargo";
+    } else if ([airlineCode isEqualToString:@"GTI"]) {
+        return @"Atlas Air";
+    } else if ([airlineCode isEqualToString:@"JBU"]) {
+        return @"JetBlue Airways";
+    } else if ([airlineCode isEqualToString:@"JZA"]) {
+        return @"Air Canada Jazz";
+    } else if ([airlineCode isEqualToString:@"KAL"]) {
+        return @"Korean Air";
+    } else if ([airlineCode isEqualToString:@"KAT"]) {
+        return @"Kato Airline";
+    } else if ([airlineCode isEqualToString:@"KLM"]) {
+        return @"KLM";
+    } else if ([airlineCode isEqualToString:@"LAK"]) {
+        return @"Lennox Airways";
+    } else if ([airlineCode isEqualToString:@"LAN"]) {
+        return @"LAN Airlines";
+    } else if ([airlineCode isEqualToString:@"LMO"]) {
+        return @"Sky Limo Corporation";
+    } else if ([airlineCode isEqualToString:@"MJR"]) {
+        return @"Midamerica Jet";
+    } else if ([airlineCode isEqualToString:@"MTN"]) {
+        return @"Mountain Air Cargo";
+    } else if ([airlineCode isEqualToString:@"NAO"]) {
+        return @"North American Airlines";
+    } else if ([airlineCode isEqualToString:@"NKS"]) {
+        return @"Spirit Airlines";
+    } else if ([airlineCode isEqualToString:@"NMI"]) {
+        return @"Pacific Wings";
+    } else if ([airlineCode isEqualToString:@"OAE"]) {
+        return @"Omni Air International";
+    } else if ([airlineCode isEqualToString:@"OPT"]) {
+        return @"Flight Options";
+    } else if ([airlineCode isEqualToString:@"PRY"]) {
+        return @"Priority Air Charter";
+    } else if ([airlineCode isEqualToString:@"RBY"]) {
+        return @"Vision Airlines";
+    } else if ([airlineCode isEqualToString:@"RPA"]) {
+        return @"Republic Airlines";
+    } else if ([airlineCode isEqualToString:@"RYN"]) {
+        return @"Ryan International Airlines";
+    } else if ([airlineCode isEqualToString:@"SFH"]) {
+        return @"Starfish";
+    } else if ([airlineCode isEqualToString:@"SKW"]) {
+        return @"SkyWest Airlines";
+    } else if ([airlineCode isEqualToString:@"SQC"]) {
+        return @"Singapore Airlines Cargo";
+    } else if ([airlineCode isEqualToString:@"SUB"]) {
+        return @"Suburban Air Freight";
+    } else if ([airlineCode isEqualToString:@"TAM"]) {
+        return @"TAM Brazilian Airlines";
+    } else if ([airlineCode isEqualToString:@"TCF"]) {
+        return @"Shuttle America";
+    } else if ([airlineCode isEqualToString:@"TRS"]) {
+        return @"AirTran Airways";
+    } else if ([airlineCode isEqualToString:@"UAL"]) {
+        return @"United Airlines";
+    } else if ([airlineCode isEqualToString:@"UPS"]) {
+        return @"United Parcel Service";
+    } else if ([airlineCode isEqualToString:@"WOA"]) {
+        return @"World Airways";
+    } else if ([airlineCode isEqualToString:@"XAC"]) {
+        return @"Air Charter World";
+    } else if ([airlineCode isEqualToString:@"XSR"]) {
+        return @"Executive AirShare";
+    } else {
+        return @"Other";
+    }
 }
 
 @end

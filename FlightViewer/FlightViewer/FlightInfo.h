@@ -2,7 +2,7 @@
 //  FlightInfo.h
 //  FlightViewerDataCreation
 //
-//  Created by Ludovic Delaveau on 7/22/12.
+//  Created by Christabelle Bosson on 07/23/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -21,6 +21,7 @@
 @property (nonatomic, retain) NSDate * departureTime;
 @property (nonatomic, retain) NSNumber * fid;
 @property (nonatomic, retain) NSString * flightPlan;
+@property (nonatomic, retain) NSString * airline;
 @property (nonatomic, retain) NSSet *flightInfo;
 @end
 

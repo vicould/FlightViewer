@@ -2,7 +2,7 @@
 //  FlightInfo.m
 //  FlightViewerDataCreation
 //
-//  Created by Ludovic Delaveau on 7/22/12.
+//  Created by Christabelle Bosson on 07/23/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -20,6 +20,7 @@
 @dynamic departureTime;
 @dynamic fid;
 @dynamic flightPlan;
+@dynamic airline;
 @dynamic flightInfo;
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51EFCE1D15BDA804003F7951 /* FlightInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EFCE1C15BDA804003F7951 /* FlightInfo.m */; };
 		8251611015B9A53E004724BA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8251610F15B9A53E004724BA /* Cocoa.framework */; };
 		8251611A15B9A53E004724BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8251611815B9A53E004724BA /* InfoPlist.strings */; };
 		8251611C15B9A53E004724BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8251611B15B9A53E004724BA /* main.m */; };
@@ -17,10 +18,11 @@
 		8251613515B9A566004724BA /* FlightPlanModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 8251613115B9A566004724BA /* FlightPlanModel.xcdatamodel */; };
 		8251613F15BA174D004724BA /* arrival_ATL_flight_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8251613D15BA174D004724BA /* arrival_ATL_flight_info.plist */; };
 		8251614015BA174D004724BA /* arrival_ATL_route_points.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8251613E15BA174D004724BA /* arrival_ATL_route_points.plist */; };
-		82B6C4FB15BC994700F6028A /* FlightInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B6C4FA15BC994700F6028A /* FlightInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51EFCE1B15BDA804003F7951 /* FlightInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightInfo.h; path = ../../FlightViewer/FlightViewer/FlightInfo.h; sourceTree = "<group>"; };
+		51EFCE1C15BDA804003F7951 /* FlightInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightInfo.m; path = ../../FlightViewer/FlightViewer/FlightInfo.m; sourceTree = "<group>"; };
 		8251610B15B9A53E004724BA /* FlightViewerDataCreation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlightViewerDataCreation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8251610F15B9A53E004724BA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8251611215B9A53E004724BA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -39,8 +41,6 @@
 		8251613115B9A566004724BA /* FlightPlanModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = FlightPlanModel.xcdatamodel; path = ../../FlightViewer/FlightPlanModel.xcdatamodeld/FlightPlanModel.xcdatamodel; sourceTree = "<group>"; };
 		8251613D15BA174D004724BA /* arrival_ATL_flight_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = arrival_ATL_flight_info.plist; path = ../../arrival_ATL_flight_info.plist; sourceTree = "<group>"; };
 		8251613E15BA174D004724BA /* arrival_ATL_route_points.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = arrival_ATL_route_points.plist; path = ../../arrival_ATL_route_points.plist; sourceTree = "<group>"; };
-		82B6C4F915BC994600F6028A /* FlightInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightInfo.h; path = ../../FlightViewer/FlightViewer/FlightInfo.h; sourceTree = "<group>"; };
-		82B6C4FA15BC994700F6028A /* FlightInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlightInfo.m; path = ../../FlightViewer/FlightViewer/FlightInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +96,9 @@
 			children = (
 				8251612F15B9A566004724BA /* RoutePoint.h */,
 				8251613015B9A566004724BA /* RoutePoint.m */,
+				51EFCE1B15BDA804003F7951 /* FlightInfo.h */,
+				51EFCE1C15BDA804003F7951 /* FlightInfo.m */,
 				8251613115B9A566004724BA /* FlightPlanModel.xcdatamodel */,
-				82B6C4F915BC994600F6028A /* FlightInfo.h */,
-				82B6C4FA15BC994700F6028A /* FlightInfo.m */,
 				8251612115B9A53E004724BA /* EPAppDelegate.h */,
 				8251612215B9A53E004724BA /* EPAppDelegate.m */,
 				8251612415B9A53E004724BA /* MainMenu.xib */,
@@ -191,7 +191,7 @@
 				8251612315B9A53E004724BA /* EPAppDelegate.m in Sources */,
 				8251613415B9A566004724BA /* RoutePoint.m in Sources */,
 				8251613515B9A566004724BA /* FlightPlanModel.xcdatamodel in Sources */,
-				82B6C4FB15BC994700F6028A /* FlightInfo.m in Sources */,
+				51EFCE1D15BDA804003F7951 /* FlightInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

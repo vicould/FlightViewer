@@ -3,6 +3,7 @@
     <entity name="FlightInfo" representedClassName="FlightInfo" syncable="YES">
         <attribute name="acFlightId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="acType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="airline" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="airportArrival" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="airportDeparture" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="arrivalTime" optional="YES" attributeType="Date" syncable="YES"/>
@@ -21,7 +22,7 @@
         <relationship name="whoFlown" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FlightInfo" inverseName="flightInfo" inverseEntity="FlightInfo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FlightInfo" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="FlightInfo" positionX="160" positionY="192" width="128" height="195"/>
         <element name="RoutePoint" positionX="412" positionY="81" width="128" height="150"/>
     </elements>
 </model>
