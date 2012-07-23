@@ -7,7 +7,6 @@
 //
 
 #import "FlightViewerTopViewController.h"
-#import "FlightViewerFPDetail.h"
 #import "FlightViewerViewController.h"
 #import "FlightInfo.h"
 

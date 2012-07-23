@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FlightViewerFPDetail.h"
 #import "FlightInfo.h"
 
 @interface FlightViewerSubViewGraphController : UIViewController

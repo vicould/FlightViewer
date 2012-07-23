@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-#import "FlightViewerFPDetail.h"
 #import "FlightInfo.h"
 
 
