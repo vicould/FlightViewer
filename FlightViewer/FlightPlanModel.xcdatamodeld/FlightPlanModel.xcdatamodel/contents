@@ -18,7 +18,7 @@
         <relationship name="whoBelongs" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Airline" inverseName="airline" inverseEntity="Airline" syncable="YES"/>
     </entity>
     <entity name="RoutePoint" representedClassName="RoutePoint" syncable="YES">
-        <attribute name="altitude" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="altitude" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="fid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -27,8 +27,8 @@
         <relationship name="whoFlown" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FlightInfo" inverseName="flightInfo" inverseEntity="FlightInfo" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Airline" positionX="-1109" positionY="138" width="128" height="75"/>
         <element name="FlightInfo" positionX="160" positionY="192" width="128" height="180"/>
         <element name="RoutePoint" positionX="412" positionY="81" width="128" height="150"/>
-        <element name="Airline" positionX="-1109" positionY="138" width="128" height="75"/>
     </elements>
 </model>

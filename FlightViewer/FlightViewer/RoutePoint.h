@@ -1,8 +1,8 @@
 //
 //  RoutePoint.h
-//  FlightViewerDataCreation
+//  FlightViewer
 //
-//  Created by Ludovic Delaveau on 7/22/12.
+//  Created by Ludovic Delaveau on 7/23/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
