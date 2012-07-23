@@ -11,6 +11,7 @@
 
 @interface FVFlightPlanSelectionViewController : CoreDataTableViewController
 
-@property (nonatomic, strong) UIManagedDocument *flightPlanDatabase;
+@property (nonatomic, strong) UIManagedDocument *flightsDatabase;
+@property (nonatomic, strong) NSString *currentAirline;
 
 @end
