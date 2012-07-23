@@ -13,11 +13,23 @@
 
 @interface FVAirlineSelection ()
 
+@property (nonatomic, strong) NSString *lastSearchTerm;
+@property (nonatomic, strong) NSArray *searchResults;
+
 @end
 
 @implementation FVAirlineSelection
 
 @synthesize flightsDatabase = _flightsDatabase;
+@synthesize lastSearchTerm = _lastSearchTerm;
+@synthesize searchResults = _searchResults;
+
+- (NSArray *)searchResults {
+    if (!_searchResults) {
+        _searchResults = [NSArray array];
+    }
+    return _searchResults;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -128,10 +140,59 @@
     }
     // Configure the cell...
     //    cell.imageView.image = [UIImage imageNamed:@"delta"];
-    Airline *airline = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Airline *airline = nil;
+    if (tableView == self.tableView) {
+        airline = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    } else if (tableView == self.searchDisplayController.searchResultsTableView) {
+        airline = [self.searchResults objectAtIndex:indexPath.row];
+    }
     cell.textLabel.text = airline.name;
     
     return cell;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    } else {
+        return [super numberOfSectionsInTableView:tableView];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.searchResults count];
+    } else {
+        return [super tableView:tableView numberOfRowsInSection:section];
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return @"";
+    } else {
+        return [super tableView:tableView titleForHeaderInSection:section];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    } else {
+        return [super tableView:tableView sectionForSectionIndexTitle:title atIndex:index];
+    }
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [NSArray array];
+    } else {
+        return [super sectionIndexTitlesForTableView:tableView];
+    }
 }
 
 #pragma mark - Table view delegate
@@ -149,10 +210,39 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     [segue.destinationViewController setFlightsDatabase:self.flightsDatabase];
-    [segue.destinationViewController setCurrentAirline:[[self.fetchedResultsController objectAtIndexPath:indexPath] name]];
+    [segue.destinationViewController setCurrentAirline:[[sender textLabel] text]];
     
+}
+
+#pragma mark - Search
+
+- (void)searchForTerm:(NSString *)query {
+    NSFetchRequest *userSearchingFlightPlansRequest = [NSFetchRequest fetchRequestWithEntityName:@"Airline"];
+    userSearchingFlightPlansRequest.predicate = [NSPredicate predicateWithFormat:@"name CONTAINS %@", query];
+    userSearchingFlightPlansRequest.sortDescriptors = [NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil];
+    
+    NSFetchedResultsController *flightPlansResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:userSearchingFlightPlansRequest managedObjectContext:self.flightsDatabase.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
+    NSError *error = nil;
+    BOOL success = [flightPlansResultsController performFetch:&error];
+    if (!success) {
+        NSLog(@"Fetched failed: %@", [error localizedDescription]);
+    }
+    
+    self.searchResults = flightPlansResultsController.fetchedObjects;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self searchForTerm:searchString];
+    
+    return YES;
+}
+
+- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller {
+    self.lastSearchTerm = nil;
+    
+    [self.tableView reloadData];
 }
 
 

@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSString *lastSearchTerm;
 @property (nonatomic, strong) NSArray *searchResults;
+@property (nonatomic) BOOL searchInUse;
 
 - (void)searchForTerm:(NSString *)query;
 
@@ -39,6 +40,8 @@
     _currentAirline = currentAirline;
     [self setupFetchedResultsController];
 }
+
+@synthesize searchInUse = _searchInUse;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -178,8 +181,14 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    [segue.destinationViewController setFlightInfo:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    NSIndexPath *indexPath = 0;
+    if (self.searchInUse) {
+        indexPath = [self.searchDisplayController.searchResultsTableView indexPathForCell:sender];
+        [segue.destinationViewController setFlightInfo:[self.searchResults objectAtIndex:indexPath.row]];
+    } else {
+        indexPath = [self.tableView indexPathForCell:sender];
+        [segue.destinationViewController setFlightInfo:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    }
     [segue.destinationViewController setFlightsDatabase:self.flightsDatabase];
     
 }
@@ -208,8 +217,13 @@
     return YES;
 }
 
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
+    self.searchInUse = YES;
+}
+
 - (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller {
     self.lastSearchTerm = nil;
+    self.searchInUse = NO;
     
     [self.tableView reloadData];
 }

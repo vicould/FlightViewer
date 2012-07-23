@@ -32,9 +32,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackTranslucent" id="LdG-hE-Twg">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="EsA-eH-68x" id="3O4-yw-MDM"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="airline" textLabel="Adm-oF-E5a" style="IBUITableViewCellStyleDefault" id="6rv-I6-5FI">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
@@ -61,7 +69,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Evf-am-D4K"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="5V9-A3-sdU" id="sJh-6x-yY4"/>
+                    </connections>
                 </tableViewController>
+                <searchDisplayController id="5V9-A3-sdU">
+                    <connections>
+                        <outlet property="delegate" destination="EsA-eH-68x" id="As0-VU-43T"/>
+                        <outlet property="searchBar" destination="LdG-hE-Twg" id="FeS-Ab-Kmo"/>
+                        <outlet property="searchContentsController" destination="EsA-eH-68x" id="bpa-K1-76G"/>
+                        <outlet property="searchResultsDataSource" destination="EsA-eH-68x" id="LBB-9g-SID"/>
+                        <outlet property="searchResultsDelegate" destination="EsA-eH-68x" id="Qmm-7Y-PBJ"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-666" y="97"/>
         </scene>
