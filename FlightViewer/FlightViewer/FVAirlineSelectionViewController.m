@@ -6,19 +6,19 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "FVAirlineSelection.h"
+#import "FVAirlineSelectionViewController.h"
 #import "Airline.h"
 #import "FVFlightPlanSelectionViewController.h"
 #import "FlightInfo.h"
 
-@interface FVAirlineSelection ()
+@interface FVAirlineSelectionViewController ()
 
 @property (nonatomic, strong) NSString *lastSearchTerm;
 @property (nonatomic, strong) NSArray *searchResults;
 
 @end
 
-@implementation FVAirlineSelection
+@implementation FVAirlineSelectionViewController
 
 @synthesize flightsDatabase = _flightsDatabase;
 @synthesize lastSearchTerm = _lastSearchTerm;

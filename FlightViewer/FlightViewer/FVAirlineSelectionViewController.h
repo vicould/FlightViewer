@@ -9,7 +9,7 @@
 #import "CoreDataTableViewController.h"
 
 
-@interface FVAirlineSelection : CoreDataTableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
+@interface FVAirlineSelectionViewController : CoreDataTableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, strong) UIManagedDocument *flightsDatabase;
 

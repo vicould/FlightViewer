@@ -23,11 +23,11 @@
             </objects>
             <point key="canvasLocation" x="-1093" y="95"/>
         </scene>
-        <!--Airline Selection-->
+        <!--Airline Selection View Controller-->
         <scene sceneID="Lh3-JG-qyc">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YLb-HB-VPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="EsA-eH-68x" customClass="FVAirlineSelection" sceneMemberID="viewController">
+                <tableViewController id="EsA-eH-68x" customClass="FVAirlineSelectionViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0FU-Dh-RXd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -307,9 +307,6 @@
     <classes>
         <class className="CoreDataTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="FVAirlineSelection" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FVAirlineSelection.h"/>
         </class>
         <class className="FVFlightPlanDetailViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FVFlightPlanDetailViewController.h"/>

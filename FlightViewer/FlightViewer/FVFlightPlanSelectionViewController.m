@@ -55,7 +55,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Flight plans";
+    self.title = self.currentAirline;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

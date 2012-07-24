@@ -29,7 +29,7 @@
 		51E4956315B075F60047C950 /* delta.png in Resources */ = {isa = PBXBuildFile; fileRef = 51E4956215B075F60047C950 /* delta.png */; };
 		51EFCE2B15BDE98D003F7951 /* Airline.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EFCE2A15BDE98D003F7951 /* Airline.m */; };
 		51EFCE2E15BDEA12003F7951 /* FlightInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EFCE2D15BDEA12003F7951 /* FlightInfo.m */; };
-		51EFCE3B15BDF280003F7951 /* FVAirlineSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EFCE3A15BDF280003F7951 /* FVAirlineSelection.m */; };
+		51EFCE3B15BDF280003F7951 /* FVAirlineSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EFCE3A15BDF280003F7951 /* FVAirlineSelectionViewController.m */; };
 		824A1C0515BE0404006AC55F /* RoutePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 824A1C0415BE0404006AC55F /* RoutePoint.m */; };
 		824A1C0815BE0494006AC55F /* FlightViewer.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 824A1C0715BE0494006AC55F /* FlightViewer.sqlite */; };
 /* End PBXBuildFile section */
@@ -69,8 +69,8 @@
 		51EFCE2A15BDE98D003F7951 /* Airline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Airline.m; path = FlightViewer/Airline.m; sourceTree = "<group>"; };
 		51EFCE2C15BDEA12003F7951 /* FlightInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightInfo.h; path = FlightViewer/FlightInfo.h; sourceTree = "<group>"; };
 		51EFCE2D15BDEA12003F7951 /* FlightInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightInfo.m; sourceTree = "<group>"; };
-		51EFCE3915BDF280003F7951 /* FVAirlineSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FVAirlineSelection.h; sourceTree = "<group>"; };
-		51EFCE3A15BDF280003F7951 /* FVAirlineSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FVAirlineSelection.m; sourceTree = "<group>"; };
+		51EFCE3915BDF280003F7951 /* FVAirlineSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FVAirlineSelectionViewController.h; sourceTree = "<group>"; };
+		51EFCE3A15BDF280003F7951 /* FVAirlineSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FVAirlineSelectionViewController.m; sourceTree = "<group>"; };
 		824A1C0315BE0404006AC55F /* RoutePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoutePoint.h; path = FlightViewer/RoutePoint.h; sourceTree = "<group>"; };
 		824A1C0415BE0404006AC55F /* RoutePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoutePoint.m; path = FlightViewer/RoutePoint.m; sourceTree = "<group>"; };
 		824A1C0715BE0494006AC55F /* FlightViewer.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = FlightViewer.sqlite; sourceTree = "<group>"; };
@@ -132,8 +132,8 @@
 				51EFCE2D15BDEA12003F7951 /* FlightInfo.m */,
 				51987E9215A8C30C00A6484A /* MainStoryboard_iPhone.storyboard */,
 				51987E9515A8C30C00A6484A /* MainStoryboard_iPad.storyboard */,
-				51EFCE3915BDF280003F7951 /* FVAirlineSelection.h */,
-				51EFCE3A15BDF280003F7951 /* FVAirlineSelection.m */,
+				51EFCE3915BDF280003F7951 /* FVAirlineSelectionViewController.h */,
+				51EFCE3A15BDF280003F7951 /* FVAirlineSelectionViewController.m */,
 				51E4955A15B061F40047C950 /* FVFlightPlanSelectionViewController.h */,
 				51E4955B15B061F40047C950 /* FVFlightPlanSelectionViewController.m */,
 				51987E9815A8C30C00A6484A /* FVFlightPlanDetailViewController.h */,
@@ -272,7 +272,7 @@
 				51CF84D415B89C8B00A282A2 /* CoreDataTableViewController.m in Sources */,
 				51EFCE2B15BDE98D003F7951 /* Airline.m in Sources */,
 				51EFCE2E15BDEA12003F7951 /* FlightInfo.m in Sources */,
-				51EFCE3B15BDF280003F7951 /* FVAirlineSelection.m in Sources */,
+				51EFCE3B15BDF280003F7951 /* FVAirlineSelectionViewController.m in Sources */,
 				824A1C0515BE0404006AC55F /* RoutePoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
