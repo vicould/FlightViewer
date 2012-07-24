@@ -63,11 +63,13 @@
     if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]))
     {
         [UIView beginAnimations:@"graph" context:nil];
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:NO];
         [self.navigationController.view setTransform: CGAffineTransformMakeRotation(M_PI / 2)];
         [self.navigationController.view setFrame:CGRectMake(0, 0, 320, 480)];
         [self.navigationController.navigationBar setFrame:CGRectMake(0, 0, 480, 32)];
         [UIView commitAnimations];
     }
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     [super viewWillAppear:animated];
 }
 

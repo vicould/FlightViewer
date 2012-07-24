@@ -134,6 +134,29 @@
     self.title = self.flightInfo.acFlightId;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    UIInterfaceOrientation currentOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+    if (UIInterfaceOrientationIsLandscape(currentOrientation)) {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+        if (currentOrientation == UIInterfaceOrientationLandscapeLeft) {
+            [UIView beginAnimations:@"map" context:nil];
+            [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
+            [self.navigationController.view setTransform: CGAffineTransformMakeRotation(0)];
+            [self.navigationController.view setFrame:CGRectMake(0, 0, 320, 480)];
+            [self.navigationController.navigationBar setFrame:CGRectMake(0, 20, 320, 44)];
+            [UIView commitAnimations];
+        } else {
+            [UIView beginAnimations:@"map" context:nil];
+            [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
+            [self.navigationController.view setTransform: CGAffineTransformMakeRotation(0)];
+            [self.navigationController.view setFrame:CGRectMake(0, 0, 320, 480)];
+            [self.navigationController.navigationBar setFrame:CGRectMake(0, 20, 320, 44)];
+            [UIView commitAnimations];
+        }
+    }
+    [super viewWillAppear:animated];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {

@@ -69,7 +69,7 @@
 		51EFCE2A15BDE98D003F7951 /* Airline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Airline.m; path = FlightViewer/Airline.m; sourceTree = "<group>"; };
 		51EFCE2C15BDEA12003F7951 /* FlightInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlightInfo.h; path = FlightViewer/FlightInfo.h; sourceTree = "<group>"; };
 		51EFCE2D15BDEA12003F7951 /* FlightInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightInfo.m; sourceTree = "<group>"; };
-		51EFCE3915BDF280003F7951 /* FVAirlineSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FVAirlineSelectionViewController.h; sourceTree = "<group>"; };
+		51EFCE3915BDF280003F7951 /* FVAirlineSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FVAirlineSelectionViewController.h; sourceTree = "<group>"; };
 		51EFCE3A15BDF280003F7951 /* FVAirlineSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FVAirlineSelectionViewController.m; sourceTree = "<group>"; };
 		824A1C0315BE0404006AC55F /* RoutePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoutePoint.h; path = FlightViewer/RoutePoint.h; sourceTree = "<group>"; };
 		824A1C0415BE0404006AC55F /* RoutePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoutePoint.m; path = FlightViewer/RoutePoint.m; sourceTree = "<group>"; };
