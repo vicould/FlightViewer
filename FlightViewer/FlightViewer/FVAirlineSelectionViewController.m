@@ -219,7 +219,7 @@
 
 - (void)searchForTerm:(NSString *)query {
     NSFetchRequest *userSearchingFlightPlansRequest = [NSFetchRequest fetchRequestWithEntityName:@"Airline"];
-    userSearchingFlightPlansRequest.predicate = [NSPredicate predicateWithFormat:@"name CONTAINS %@", query];
+    userSearchingFlightPlansRequest.predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[c] %@", query];
     userSearchingFlightPlansRequest.sortDescriptors = [NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES], nil];
     
     NSFetchedResultsController *flightPlansResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:userSearchingFlightPlansRequest managedObjectContext:self.flightsDatabase.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
