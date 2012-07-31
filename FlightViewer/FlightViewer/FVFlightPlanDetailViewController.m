@@ -137,22 +137,26 @@
 - (void)viewWillAppear:(BOOL)animated {
     UIInterfaceOrientation currentOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     if (UIInterfaceOrientationIsLandscape(currentOrientation)) {
-        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
         if (currentOrientation == UIInterfaceOrientationLandscapeLeft) {
-            [UIView beginAnimations:@"map" context:nil];
+            [UIView beginAnimations:@"rotate" context:nil];
             [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
             [self.navigationController.view setTransform: CGAffineTransformMakeRotation(0)];
             [self.navigationController.view setFrame:CGRectMake(0, 0, 320, 480)];
-            [self.navigationController.navigationBar setFrame:CGRectMake(0, 20, 320, 44)];
             [UIView commitAnimations];
         } else {
-            [UIView beginAnimations:@"map" context:nil];
+            [UIView beginAnimations:@"rotate" context:nil];
             [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
             [self.navigationController.view setTransform: CGAffineTransformMakeRotation(0)];
             [self.navigationController.view setFrame:CGRectMake(0, 0, 320, 480)];
-            [self.navigationController.navigationBar setFrame:CGRectMake(0, 20, 320, 44)];
             [UIView commitAnimations];
         }
+    }
+    if ([[UIApplication sharedApplication] isStatusBarHidden]) {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+        int statusBarYOffset = [[UIApplication sharedApplication] statusBarFrame].size.height;
+        [UIView beginAnimations:@"status" context:nil];
+        [self.navigationController.navigationBar setFrame:CGRectMake(0, statusBarYOffset, 320, 44)];
+        [UIView commitAnimations];
     }
     [super viewWillAppear:animated];
 }
